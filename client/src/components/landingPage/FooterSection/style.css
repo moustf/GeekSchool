@@ -1,0 +1,182 @@
+
+.footer_wrapper {
+  min-height: 500px;
+}
+
+.footer_banner {
+  height: 250px;
+  margin: 0 150px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left_hash {
+  width: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.right_hash {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.map_wrapper {
+  width: 95%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a244b;
+  border-radius: 16px;
+  position: relative;
+}
+
+.map {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content_section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.content_section div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.description {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 3rem;
+  max-width: 50%;
+  flex-direction: column;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 33px;
+  color: #ffffff;
+}
+
+.title  {
+    text-align: center;
+    line-height: 60px;
+}
+
+.title h1{
+    font-size: 34px;
+    color: #fff;
+    line-height: 50px;
+
+}
+
+.list_section {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 0 100px;
+}
+
+.school_logo {
+  width: 200px;
+  height: 100px;
+}
+
+.under_line {
+  height: 1px;
+  background-color: #707070;
+  width: 80%;
+  margin: auto;
+  margin-top: 24px;
+}
+
+.tail_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  padding: 0 100px;
+  margin-top: 16px;
+}
+
+.tail_section p{
+  display: block;
+  margin: auto;
+  flex: 2;
+}
+
+.icons_section {
+  color:  #1B93CB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  max-width: 200px;
+  margin: auto;
+  font-size: 1.2rem;
+}
+/* antd style */
+
+.ant-btn-lg {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  cursor: pointer !important;
+}
+
+.ant-list-split {
+  flex: 1;
+}
+
+.ant-list-item {
+  border: none !important;
+
+}
+
+.list-footer{
+text-align: center; 
+}
+
+.list-footer .listItem-footer{
+  padding: 0;
+}
+
+@media only screen and (max-width: 980px) {
+  .content_section {
+    flex-direction: column;
+  }
+  .footer_banner {
+    height: 100%;
+  }
+  .description {
+    min-width: 100%;
+  }
+  .list_section {
+    flex-direction: column;
+    border: 1px solid green;
+  }
+  .ant-list-split {
+    width: 100%;
+  }
+  .footer_wrapper{
+    border: 1px solid gold;
+    height: 10000px;
+  }
+}

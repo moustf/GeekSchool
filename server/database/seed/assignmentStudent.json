@@ -1,0 +1,56 @@
+[
+    {
+        "student_id": 1,
+        "assignment_id": 1,
+        "is_submitted": true,
+        "grades": 8,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    },
+    {
+        "student_id": 2,
+        "assignment_id": 1,
+        "is_submitted": true
+    },
+    {
+        "student_id": 3,
+        "assignment_id": 1,
+        "is_submitted": true,
+        "grades": 9,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    },
+    {
+        "student_id": 4,
+        "assignment_id": 1,
+        "is_submitted": true,
+        "grades": 6,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    },
+    {
+        "student_id": 1,
+        "assignment_id": 2,
+        "is_submitted": true,
+        "grades": 8,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    },
+    {
+        "student_id": 2,
+        "assignment_id": 2,
+        "is_submitted": true
+    },
+    {
+        "student_id": 3,
+        "assignment_id": 2,
+        "is_submitted": true,
+        "grades": 9,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    },
+    {
+        "student_id": 4,
+        "assignment_id": 2,
+        "is_submitted": true,
+        "grades": 6,
+        "material_link": "https://docs.google.com/document/d/1MdyKKbDKKZUvmgp9nf_TgykUjCAkmQvhqcPdRbBeMN8/edit?usp=sharing"
+    }
+]
+
+

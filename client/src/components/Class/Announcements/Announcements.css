@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.class-announcement {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  padding: 3rem 0 0 3rem;
+  overflow: auto;
+}
+
+.class-announcement .title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.class-announcement .inner-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.class-announcement .inner-cont .test-box {
+  background-color: white;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px #00000026;
+  gap: 2rem;
+}
+
+.test-box .hr {
+  background-color: #e7e7e7;
+  width: 1px;
+  height: 90px;
+}
+
+.class-announcement .inner-cont .test-box-inner {
+  width: 90%;
+}
+
+.class-announcement .inner-cont .test-box-inner .test-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+.class-announcement .inner-cont .test-box-inner .test-date,
+.class-announcement .inner-cont .test-box-inner .test-time {
+  font-size: 0.8rem;
+  color: #919191;
+  font-weight: 500;
+}
+
+
+.class-announcement .inner-cont .test-box-inner .test-notes {
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  color: #3f3f3f;
+}

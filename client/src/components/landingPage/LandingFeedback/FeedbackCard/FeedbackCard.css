@@ -1,0 +1,25 @@
+.feedback-card {
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+}
+
+.feedback-card .head-para {
+  display: inline-block;
+  font-size: 18px;
+  /* width: 25rem; */
+}
+
+.user-image {
+  object-fit: contain;
+}
+
+.user-info .name {
+  font-size: 1rem;
+  padding-bottom: 10px;
+}
+
+.user-info .date {
+  color: #1B93CB;
+}

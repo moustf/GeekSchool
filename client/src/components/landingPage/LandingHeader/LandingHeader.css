@@ -1,0 +1,108 @@
+.landing-section .landing-header  {
+  position: sticky;
+  top:0;
+  width: 100%;
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-section .landing-header .logo-image {
+  width: 140px;
+}
+
+.landing-section .landing-header .logo-image > div img {
+  width: 100%;
+}
+
+.landing-section .landing-header .logo-image > div {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-section .landing-header .buttons {
+  /* width: 20rem; */
+  height: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  box-shadow: none;
+  /* background-color: blue; */
+
+
+}
+
+.landing-section .landing-header .buttons button,
+.user-profile button {
+  width: 8rem;
+  /* height: 2.3rem; */
+  font-size: 0.8rem;
+  border-radius: 10px;
+  margin:0  0.3rem;
+
+}
+
+.landing-section .landing-header .navigation {
+  width: 25rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-right: auto; */
+  box-shadow: none;
+}
+
+.landing-section .landing-header .navigation .nav-link {
+  width: 8rem;
+  height: 2rem;
+  font-size: 0.8rem;
+  position: relative;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-section .landing-header .navigation .nav-link:hover::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #0CBE8A;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+}
+
+.landing-section .join-us-section {
+  width: 100%;
+  height: 92vh;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15rem;
+  background-color: #F8F8F8;
+}
+
+.landing-section .join-us-section .landing-image {
+  width: 100%;
+  height: 90%;
+}
+
+.landing-section .join-us-section .join-us-texts {
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.landing-section .join-us-section .join-us-texts .text-title {
+  width: 35rem;
+  text-align: center;
+}
+
+.landing-section .join-us-section .join-us-texts .text-para {
+  font-size: larger;
+  text-align: center;
+}

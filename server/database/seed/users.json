@@ -1,0 +1,66 @@
+[
+  {
+      "name": "رامي هاني",
+      "email": "rami@gmail.com",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "student",
+      "password": "$2a$12$gc76a.5WWg6d/DTsbD5CZ.TUDqpuG8s4sK0feSm6zGVglezNTAbLi"
+    },
+  {
+      "name": "جميل إبراهيم",
+      "email": "jameel@gmail.com",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "student",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "كامل علي",
+      "email": "kamel@gmail.com",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "student",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "سعيد رامي",
+      "email": "saeed@gmail.com",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "student",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "أسماء عبدالله",
+      "mobile": "0123456789",
+      "email": "asmaa@gmail.com",
+      "location": "خانيونس، المعسكر",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScxU3F5I32uVCrfhvxrDPHXiarJ5Rjg3LwQ&usqp=CAU",
+      "role": "teacher",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "إياد خميس",
+      "mobile": "0123456789",
+      "email": "eiad@gmail.com",
+      "location": "معسكر جباليا",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "teacher",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "قاسم عيسى",
+      "mobile": "0123456789",
+      "email": "qasem@gmail.com",
+      "location": "غزة، الشيخ رضوان",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "parent",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    },
+  {
+      "name": "تامر محمد",
+      "mobile": "0123456789",
+      "email": "tamer@gmail.com",
+      "location": "غزة، النصر",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
+      "role": "parent",
+      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+    }
+  ]

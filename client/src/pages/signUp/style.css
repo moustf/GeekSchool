@@ -1,0 +1,187 @@
+p {
+  margin: 0;
+}
+
+#signUp-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#signUp-main #signUp-intro {
+  position: relative;
+  width: 55%;
+}
+
+#signUp-main #signUp-intro .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(17, 17, 17, 0.32);
+  width: 100%;
+  height: 100%;
+}
+
+#signUp-main #signUp-intro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#signUp-main #signUp-intro .info {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 70%;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.60);
+}
+
+#signUp-main #signUp-intro .info h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 50%;
+}
+
+#signUp-main #signUp-intro .info p {
+  width: 80%;
+  font-size: 1rem;
+}
+
+#signUp-form {
+  padding: 2rem;
+  width: 45%;
+  display: flex;
+  background-color: #F8F9FB;
+  flex-wrap: wrap;
+  overflow: auto;
+  align-items: flex-start;
+}
+
+/* width */
+#signUp-form::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#signUp-form::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+#signUp-form::-webkit-scrollbar-thumb {
+  background: #2e9cc792;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+#signUp-form::-webkit-scrollbar-thumb:hover {
+  background: inherit;
+}
+
+
+#signUp-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+#signUp-form .welcome-massage {
+  flex-direction: column;
+  height: auto;
+}
+
+#signUp-form .welcome-massage h1 {
+  font-size: 2rem;
+  color: #2F3032;
+  font-weight: 600;
+}
+
+#signUp-form .welcome-massage p {
+  font-size: 1.2rem;
+}
+
+.ant-form-item {
+  margin: 0 !important;
+}
+
+.xz label{
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 2px;
+  margin-top: 0;
+  align-items: flex-start !important;
+  height: auto !important;
+}
+
+.form > p {
+  font-size: 1.2rem;
+}
+
+.form input {
+  padding: 0.5rem 1rem !important;
+  width: 100%;
+  box-shadow: 0 0 0 0 black !important;
+}
+
+.form > span {
+  padding: 0 0 0 1rem !important;
+}
+
+.add-child {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.child-cont {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.child-email {
+  display: flex;
+  justify-content: space-between;
+  background: var(--second-color);
+  padding: 0.4rem 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 30px;
+  width: calc(95% / 2);
+  margin-top: 0.5rem;
+}
+
+.child-email p {
+  font-size: 0.8rem;
+  color: var(--white);
+  margin: 0;
+}
+
+.child-email svg {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.child-email svg:hover {
+  color: var(--red);
+}
+
+.submit-btn {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: var(--main-color);
+}

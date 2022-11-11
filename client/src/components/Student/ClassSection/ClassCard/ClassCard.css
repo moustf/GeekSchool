@@ -1,0 +1,21 @@
+.first-part .class-name {
+  width: 50%;
+  color: var(--white);
+  margin: 0rem;
+}
+
+.first-part .teacher-name {
+  color: var(--white);
+  margin: 0rem;
+}
+
+.class-avatar {
+  position: absolute;
+  z-index: 10;
+  left: 8%;
+  top: 28%;
+}
+
+.marked {
+  font-size: 0.5rem;
+}

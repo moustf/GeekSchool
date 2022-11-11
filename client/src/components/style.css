@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #eeee;
+}
+
+.recommended-card,
+.feedback-card {
+  background-color: white;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px #00000026;
+}
+
+.recommended-card p {
+  width: 90%;
+  color: #222;
+  margin: 0 !important;
+}
+
+.recommended-card .hr {
+  width: 1px;
+  height: 45px;
+  background-color: #e7e7e7;
+}
+
+.recommended-card a {
+  color: #0F93CB;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.recommended-card a i {
+  margin-left: 0.4rem;
+}
+
+.feedback-card p {
+  color: #222;
+  margin: 0 !important;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 2px 4px #00000026;
+  padding: 1.5rem 3rem;
+  gap: 1rem;
+}
+
+.question-card .question-form {
+  display: flex;
+  align-items: center;
+}
+
+.question-card .hr {
+  background-color: #e7e7e7;
+  width: 100%;
+  height: 1px;
+}
+
+.question-card div > div {
+  width: 100%;
+  margin: 0 !important;
+  margin-right: 0.4rem !important;
+}
+
+.question-card div button {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-card p {
+  margin: 0 !important;
+  color: #222;
+}
+
+.question-card hr {
+  color: #969696;
+}
+
+.fa-up-right-from-square {
+  margin-right: 1rem;
+}
