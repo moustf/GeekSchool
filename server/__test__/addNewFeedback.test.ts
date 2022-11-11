@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import { sequelize } from '../models';
+// import { sequelize } from '../models';
 import buildSeed from '../database/seed';
 import app from '../app';
 
 jest.setTimeout(20000);
 beforeAll(() => buildSeed());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing adding new feedback route', () => {
   test('Test the success path: the feedback should be created when the user is a student and he is logged in!', (done) => {

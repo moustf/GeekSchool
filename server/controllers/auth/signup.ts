@@ -20,19 +20,19 @@ const addChild = async (child: any, parentId: number) => {
   await createStudent(studentId, parentId);
 };
 
-const createParentAccount = async (user: UserTableInterface, children?: Array<string>) => {
+const createParentAccount = async (user: UserTableInterface, children: Array<string> = []) => {
   const parentUser = await createUser(user);
   const parentUserId = parentUser.getDataValue('id');
   const parent = await createParent(parentUserId);
   const parentId = parent.getDataValue('id');
 
-  // [email1, email2]
-  // check if emails in user
-  // create students
-  // create one parent
-  children?.forEach((child) => {
-    addChild(child, parentId);
-  });
+  // children?.forEach((child) => {
+  //   addChild(child, parentId);
+  // });
+  // console.log(children.length);
+  for (let i = 0; i < children.length; i += 1) {
+    addChild(children[i], parentId);
+  }
 };
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import sequelize from '../database/connection';
+// import sequelize from '../database/connection';
 
 import app from '../app';
 import buildModel from '../database/build';
@@ -8,7 +8,7 @@ import buildModel from '../database/build';
 jest.setTimeout(20000);
 
 beforeAll(() => buildModel());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing the statistics router', () => {
   test('dummy test', () => {

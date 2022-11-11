@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import { sequelize } from '../models';
+// import { sequelize } from '../models';
 import buildSeed from '../database/seed';
 import app from '../app';
 
 jest.setTimeout(20000);
 beforeAll(() => buildSeed());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing delete a student from a class route!', () => {
   test('Testing the success path: the user is a teacher and the user is logged in', (done) => {

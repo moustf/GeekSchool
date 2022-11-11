@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import sequelize from '../database/connection';
+// import sequelize from '../database/connection';
 import buildModel from '../database/build';
 import app from '../app';
 
-jest.setTimeout(20000);
+jest.setTimeout(50000);
 
 beforeAll(() => buildModel());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing signup route', () => {
   test('dummy test', () => {
@@ -93,27 +93,28 @@ describe('Testing signup route', () => {
       });
   });
 
-  // test('Should create the parent account and map children', (done) => {
-  //   supertest(app)
-  //     .post('/api/v1/auth/signup')
-  //     .send({
-  //       name: 'Issa Salem',
-  //       email: 'parent@gmail.com',
-  //       password: 'root123',
-  //       confPassword: 'root123',
-  //       mobile: '0599999999',
-  //       location: 'Gaza-Palestine',
-  //       role: 'parent',
-  //       children: [
-  //         'child1@gmail.com',
-  //         'child2@gmail.com',
-  //       ],
-  //     })
-  //     .expect(201)
-  //     .end((err, res) => {
-  //       if (err) return done(err);
-  //       expect(res.body.msg).toBe('Account is created successfully!');
-  //       return done();
-  //     });
-  // });
+  test('Should create the parent account and map children', (done) => {
+    supertest(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        name: 'Issa Salem',
+        email: 'parent@gmail.com',
+        password: 'root123',
+        confPassword: 'root123',
+        mobile: '0599999999',
+        location: 'Gaza-Palestine',
+        role: 'parent',
+        children: [
+          'child1@gmail.com',
+          'child2@gmail.com',
+        ],
+      })
+      .expect(201)
+      .end((err, res) => {
+        // console.log(res.body);
+        if (err) return done(err);
+        expect(res.body.msg).toBe('Account is created successfully!');
+        return done();
+      });
+  });
 });

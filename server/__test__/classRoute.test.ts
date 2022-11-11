@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import { sequelize } from '../models';
+// import { sequelize } from '../models';
 import buildSeed from '../database/seed';
 import app from '../app';
 
 jest.setTimeout(50000);
 beforeAll(() => buildSeed());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing class routes', () => {
   test('should return all announcement for a specific class', (done) => {

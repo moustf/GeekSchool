@@ -1,11 +1,11 @@
 import supertest from 'supertest';
-import { sequelize } from '../models';
+// import { sequelize } from '../models';
 import buildSeed from '../database/seed';
 import app from '../app';
 
 jest.setTimeout(20000);
 beforeAll(() => buildSeed());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing get the students for a specific teacher route.', () => {
   test('Testing the success path, when the user is logged in and the role of him is teacher. The statusCode should be 200.', (done) => {

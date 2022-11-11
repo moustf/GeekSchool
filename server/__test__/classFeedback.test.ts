@@ -1,11 +1,11 @@
 import supertest from 'supertest';
-import { sequelize } from '../models';
+// import { sequelize } from '../models';
 import buildSeed from '../database/seed';
 import app from '../app';
 
 jest.setTimeout(20000);
 beforeAll(() => buildSeed());
-afterAll(() => sequelize.close());
+// afterAll(() => sequelize.close());
 
 describe('Testing class routes', () => {
   test('Should return the statusCode 200 when trying to get the feedback from the teacher when he is logged in', (done) => {
