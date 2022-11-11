@@ -1,0 +1,42 @@
+[
+    {
+        "class_id": 1,
+        "student_id": 1,
+        "feedback": "الرجاء الشرح بتمهل و إمعان."
+    },
+    {
+        "class_id": 1,
+        "student_id": 2,
+        "feedback": "شكرًا جزيلًا لجهودك."
+    },
+    {
+        "class_id": 1,
+        "student_id": 3,
+        "feedback": "نحتاج تمارين أكثر لو أمكن."
+    },
+    {
+        "class_id": 1,
+        "student_id": 4,
+        "feedback": "التساهل في التأخير بسبب الظروف الطارئة."
+    },
+    {
+        "class_id": 2,
+        "student_id": 1,
+        "feedback": "الرجاء الشرح بتمهل و إمعان."
+    },
+    {
+        "class_id": 2,
+        "student_id": 2,
+        "feedback": "شكرًا جزيلًا لجهودك."
+    },
+    {
+        "class_id": 2,
+        "student_id": 3,
+        "feedback": "نحتاج تمارين أكثر لو أمكن."
+    },
+    {
+        "class_id": 2,
+        "student_id": 4,
+        "feedback": "التساهل في التأخير بسبب الظروف الطارئة."
+    }
+]

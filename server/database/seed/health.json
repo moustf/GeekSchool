@@ -1,0 +1,42 @@
+[
+    {
+        "student_id": 1,
+        "dental": "تسوس أسنان",
+        "vision": "تهيج بلقرنية",
+        "blood_presure": "طبيعي",
+        "cancer": "لا يوجد",
+        "diabetes": "لا يوجد",
+        "chronic": "أزمة تنفس",
+        "others": "لا يوجد"
+    },
+    {
+        "student_id": 2,
+        "dental": "تسوس أسنان",
+        "vision": "تهيج بلقرنية",
+        "blood_presure": "طبيعي",
+        "cancer": "لا يوجد",
+        "diabetes": "لا يوجد",
+        "chronic": "أزمة تنفس",
+        "others": "لا يوجد"
+    },
+    {
+        "student_id": 3,
+        "dental": "تسوس أسنان",
+        "vision": "تهيج بلقرنية",
+        "blood_presure": "طبيعي",
+        "cancer": "لا يوجد",
+        "diabetes": "لا يوجد",
+        "chronic": "أزمة تنفس",
+        "others": "لا يوجد"
+    },
+    {
+        "student_id": 4,
+        "dental": "تسوس أسنان",
+        "vision": "تهيج بلقرنية",
+        "blood_presure": "طبيعي",
+        "cancer": "لا يوجد",
+        "diabetes": "لا يوجد",
+        "chronic": "أزمة تنفس",
+        "others": "لا يوجد"
+    }
+]

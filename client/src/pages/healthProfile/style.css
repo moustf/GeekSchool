@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  overflow: auto !important;
+}
+
+#health-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+#health-container .health-card {
+  width: calc(90% / 2);
+  height: 100%;
+  margin-bottom: 1rem;
+  border-radius: 10px; 
+  overflow: hidden;
+}
+
+#health-container .health-card h1{
+  margin: 0;
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+#health-container .health-card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+#health-container .health-card > div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+  position: relative;
+}
+
+#health-container .health-card > div div p {
+  color: var(--white);
+  font-size: 1rem;
+  margin: 0;
+  width: 90%;
+  word-wrap: break-word;
+}
+
+#health-container .health-card > div div button {
+  width: 100%;
+  background-color: var(--second-color);
+  outline: 0;
+  border: 0;
+  color: var(--white);
+  border-radius: 5px;
+}
+
+#health-container .health-card > div div textarea {
+  resize: none;
+}
+
+#health-container .health-card > div img {
+  width: 50px;
+  height: 50px;
+}
+
+#health-container .health-card > div div > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.1rem;
+  color: var(--white);
+}

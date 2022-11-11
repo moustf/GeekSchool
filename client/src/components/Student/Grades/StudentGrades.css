@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.grades {
+  width: 100%;
+  min-height: 20rem;
+  padding: 2rem 3rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

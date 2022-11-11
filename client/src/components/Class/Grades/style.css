@@ -1,0 +1,71 @@
+.title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+}
+
+.name_wrapper {
+    display: flex;
+    align-items: center;
+    padding-right: 53px !important;
+}
+
+.name_wrapper span {
+    text-align: right;
+}
+
+.name_image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.table_wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.result_failed .result_text {
+    color: red;
+}
+
+
+.result_success .result_text {
+    color: green;
+}
+
+.ant-table-row-level-0 .ant-table-cell:nth-child(2) {
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.ant-table-row-level-0 .ant-table-cell:nth-child(3) {
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* antd style */
+
+.ant-table-cell {
+    text-align: center !important;
+}
+
+.ant-table-cell, .ant-table-wrapper {
+    background-color: white !important;
+}
+
+.ant-table-thead tr th:first-child {
+    padding-left: 60px !important;
+}
+
+.ant-table-cell::before {
+    background-color: transparent !important;
+}
+
+.ant-pagination li:first-child,
+.ant-pagination li:last-child
+ {
+    transform: rotate(180deg);
+}

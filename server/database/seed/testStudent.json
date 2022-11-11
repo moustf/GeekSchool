@@ -1,0 +1,122 @@
+[
+  {
+   "test_id": 1,
+    "student_id": 1,
+    "grade": 15
+  },
+  {
+   "test_id": 2,
+    "student_id": 1,
+    "grade": 28
+  },
+  {
+   "test_id": 3,
+    "student_id": 1,
+    "grade": 47
+  },
+  {
+   "test_id": 4,
+    "student_id": 1,
+    "grade": 13
+  },
+  {
+   "test_id": 5,
+    "student_id": 1,
+    "grade": 22
+  },
+  {
+   "test_id": 6,
+    "student_id": 1,
+    "grade": 38
+  },
+  {
+   "test_id": 1,
+    "student_id": 2,
+    "grade": 15
+  },
+  {
+   "test_id": 2,
+    "student_id": 2,
+    "grade": 28
+  },
+  {
+   "test_id": 3,
+    "student_id": 2,
+    "grade": 47
+  },
+  {
+   "test_id": 4,
+    "student_id": 2,
+    "grade": 13
+  },
+  {
+   "test_id": 5,
+    "student_id": 2,
+    "grade": 22
+  },
+  {
+   "test_id": 6,
+    "student_id": 2,
+    "grade": 38
+  },
+  {
+   "test_id": 1,
+    "student_id": 3,
+    "grade": 15
+  },
+  {
+   "test_id": 2,
+    "student_id": 3,
+    "grade": 28
+  },
+  {
+   "test_id": 3,
+    "student_id": 3,
+    "grade": 47
+  },
+  {
+   "test_id": 4,
+    "student_id": 3,
+    "grade": 13
+  },
+  {
+   "test_id": 5,
+    "student_id": 3,
+    "grade": 22
+  },
+  {
+   "test_id": 6,
+    "student_id": 3,
+    "grade": 38
+  },
+  {
+   "test_id": 1,
+    "student_id": 4,
+    "grade": 15
+  },
+  {
+   "test_id": 2,
+    "student_id": 4,
+    "grade": 28
+  },
+  {
+   "test_id": 3,
+    "student_id": 4,
+    "grade": 47
+  },
+  {
+   "test_id": 4,
+    "student_id": 4,
+    "grade": 13
+  },
+  {
+   "test_id": 5,
+    "student_id": 4,
+    "grade": 22
+  },
+  {
+   "test_id": 6,
+    "student_id": 4,
+    "grade": 38
+  }
+]

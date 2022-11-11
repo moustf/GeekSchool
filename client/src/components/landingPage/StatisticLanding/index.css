@@ -1,0 +1,101 @@
+* {
+    font-family: 'Poppins';
+    font-style: normal;
+
+}
+
+.statistic {
+    background-color: #0B214B;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* gap: 4rem */
+}
+
+.statistic p {
+    color: var(--white);
+}
+
+.right,
+.left {
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    border: none !important;
+    text-align: center !important;
+}
+
+.right {
+    /* gap: 1rem !important; */
+}
+
+.left {
+    /* width: 30%;
+    padding-top:1.3rem; */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem !important;
+
+
+
+}
+
+.line {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+
+
+
+}
+
+
+.number {
+    width: 20%;
+    margin: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+
+}
+
+.number h1 {
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 .text-number {
+    height: 144px;
+    font-weight: 700;
+    font-size: 55px;
+
+}
+
+.right h1 {
+    font-weight: 600;
+    font-size: 50px;
+    color: white;
+}
+
+.right p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 0.8px;
+    color: white;
+}

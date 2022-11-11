@@ -1,0 +1,41 @@
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .notes-month {
+    font-size: 28px;
+    text-align: center;
+  }
+  .notes-month section {
+    font-size: 28px;
+  }
+  
+.ant-collapse-header {
+  flex-direction: row-reverse;
+  border-radius: .8rem !important;
+}
+
+.ant-collapse-icon-position-start {
+  border-radius: .8rem !important;
+  box-shadow: 0 4px 10px #d8d8d8;
+}
+
+.table_wrapper .ant-pagination {
+  display: none !important;
+}
+
+
+.table_wrapper .ant-table-cell:first-child {
+  text-align: center !important;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}

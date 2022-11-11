@@ -1,0 +1,122 @@
+.title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+}
+
+.name_wrapper {
+    display: flex;
+    align-items: center;
+    padding-right: 53px !important;
+}
+
+.name_wrapper img {
+    display: block;
+    margin-left: 12px;
+}
+.name_image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.table_wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.result_failed .result_text {
+    color: red;
+}
+
+.name_text {
+    color: #393939 !important;
+    font-family: 'Poppins' !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+
+.result_success .result_text {
+    color: green;
+}
+
+.action {
+    color: #fff;
+    font-size: 24px;
+    display: flex !important;
+    justify-content: space-evenly !important; 
+    align-items: center !important;
+}
+.icon {
+    width: 50px;
+    height: 35px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.user_icon {
+    background-color: #0C93BE;
+
+}
+
+.delete_icon {
+    background-color: #ED4C4C;
+
+}
+/* antd style */
+
+.ant-table-cell, .ant-table-wrapper {
+    background-color: white !important;
+}
+
+.ant-table-thead tr th:first-child {
+    padding-left: 60px !important;
+    margin-right: 65px;
+    padding-right: 80px !important;
+    display: flex;
+}
+
+.ant-table-thead tr th:last-child {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+ .ant-table-row-level-0 .ant-table-cell:nth-child(2) {
+    color: #0AB28B !important;
+}
+
+.ant-table-row-level-0 .ant-table-cell:nth-child(3) {
+    color: #B1B1B1 !important;
+}
+
+.ant-table-row {
+    font-family: 'Poppins' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+.ant-table-cell::before {
+    background-color: transparent !important;
+}
+
+.ant-layout-content {
+    position: relative;
+}
+
+.ant-space {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

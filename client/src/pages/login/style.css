@@ -1,0 +1,17 @@
+.login-form {
+  align-items: center !important;
+  padding: 2rem 4rem !important;
+}
+
+.login-form > div {
+  gap: 4rem !important;
+}
+
+.login-form > div input {
+  width: 100%;
+  height: 100%;
+}
+
+.ant-input-affix-wrapper {
+  padding: 0 11px !important;
+}
