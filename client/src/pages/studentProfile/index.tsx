@@ -34,10 +34,7 @@ const StudentProfile: FC<{
 
   const getStudentInfo = async () => {
     try {
-      console.log("sdfsdfsdf", { studentId });
-
       const data = await axios.get(`/api/v1/student/${studentId}/info`);
-      console.log("sssssssss", data);
 
       setStudentData(data.data.data[0]);
     } catch (error: any) {
@@ -50,7 +47,6 @@ const StudentProfile: FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // if (!studentData) return <Spin tip="Loading..." />;
   return (
     <ProfilePage
       name={studentData?.name}

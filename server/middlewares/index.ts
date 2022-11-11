@@ -6,7 +6,7 @@ import studentAndTeacher from './studentAndTeacher';
 import studentRelatedToParent from './studentRelatedToParent';
 import studentAndParent from './studentAndParent';
 import healthMiddleware from './healthMiddleware';
-import studentAndParentAndTeacher from './studentAndParent And teacher';
+import studentAndParentAndTeacher from './studentAndParentAndTeacher';
 import studentInfoMiddleware from './studentInfoMiddleware';
 
 export {

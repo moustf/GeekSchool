@@ -68,14 +68,10 @@ export const UserAuthProvider = (): UserDataInterface => {
     try {
       setLoading(true);
       const res = await axios.post("/api/v1/auth/signup", data);
-      console.log(data);
-      console.log(res);
 
       setUserData({
         ...res.data.data,
       });
-
-      console.log({ userData });
 
       setLoading(false);
       if (callback) callback(null);
@@ -139,9 +135,6 @@ interface ProvideAuthProps {
 
 export const ProvideAuth = ({ children }: ProvideAuthProps): ReactElement => {
   const auth = UserAuthProvider();
-  // if (auth.loading) {
-  //   return <h2>loading ...</h2>;
-  // }
   return (
     <UserAuthContext.Provider value={auth}>{children}</UserAuthContext.Provider>
   );

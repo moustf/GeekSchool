@@ -11,7 +11,6 @@ const userAuth = async (req: any, res: Response, next: NextFunction) => {
     }
 
     const user = await verifyToken(token);
-    console.log('hey from user');
 
     req.user = user;
     next();

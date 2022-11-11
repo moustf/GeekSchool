@@ -6,7 +6,6 @@ const getStudentInfo = async (req: Request, res: Response, next: NextFunction) =
     const { studentId } = req.params;
 
     const data = await getStudentInfoQuery(studentId);
-    console.log('222222', data);
 
     res.json({ data });
   } catch (error) {

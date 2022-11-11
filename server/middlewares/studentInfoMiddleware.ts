@@ -8,7 +8,6 @@ const studentInfoMiddleware = async (req: any, res: Response, next: NextFunction
     const { studentId } = req.params;
     const data = await studentParentRelationQuery(id, studentId);
     const isRelated = data[0]?.getDataValue('id');
-    console.log(data);
 
     switch (true) {
       case role === 'teacher':
@@ -24,8 +23,6 @@ const studentInfoMiddleware = async (req: any, res: Response, next: NextFunction
         throw new CustomError(401, 'Unauthenticated');
     }
   } catch (error) {
-    console.log('i cached the fucking error');
-
     next(error);
   }
 };
