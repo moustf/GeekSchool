@@ -8,6 +8,29 @@
   align-items: center;
 }
 
+.landing-section .landing-header .logged-in-section {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+}
+
+.landing-section .landing-header .logged-in-section .logout-cont {
+  width: 8rem;
+  height: 100%;
+  display: flex;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.landing-section .landing-header .logged-in-section .logout-cont svg {
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+}
+
 .landing-section .landing-header .logo-image {
   width: 140px;
 }

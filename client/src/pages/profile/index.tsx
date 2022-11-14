@@ -3,12 +3,12 @@ import { Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { LogoutOutlined } from "@ant-design/icons";
 import { message } from "antd";
-import axios from "axios";
 import UserHeader from "../../components/profile/UserHeader";
 import Reports from "../../components/profile/Report";
 import Nav from "../../components/profile/Nav";
 import { TeacherSchedule } from "../../components";
 import Logo from "../../assets/new-logo.png";
+import { useUserData } from "../../context/AuthContext";
 import "./style.css";
 
 interface ProfilePageProps {
@@ -39,6 +39,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
   const [activeColor] = useState<string>("profile-active");
   const { studentId } = useParams();
   const navigate = useNavigate();
+  const { logout } = useUserData();
 
   const paths = [
     `/student/${studentId}/classes`,
@@ -52,14 +53,13 @@ const ProfilePage: FC<ProfilePageProps> = ({
     setNewPath(path);
   };
 
-  const logOut = async () => {
+  const handleLogout = async () => {
     try {
-      const logOutData = await axios.post("/api/v1/auth/logout");
+      const logoutData = await logout();
 
-      message.success(logOutData.data.msg);
+      message.success(logoutData.data.msg);
       setIsGotten(false);
       navigate("/");
-      window.location.reload();
     } catch (error: any) {
       message.error(error.response.data.msg);
     }
@@ -71,7 +71,9 @@ const ProfilePage: FC<ProfilePageProps> = ({
         <div>
           <img src={Logo} alt="geek school logo" />
         </div>
-        <LogoutOutlined onClick={logOut} />
+        <div className="logout-cont">
+          <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
+        </div>
         <div>
           <img
             src="https://www.pngitem.com/pimgs/m/99-998739_dale-engen-person-placeholder-hd-png-download.png"

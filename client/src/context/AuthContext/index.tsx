@@ -86,7 +86,7 @@ export const UserAuthProvider = (): UserDataInterface => {
   const logout = async (callback: any = null): Promise<any> => {
     try {
       setLoading(true);
-      await axios.post("/api/v1/auth/logout");
+      const logoutData = await axios.post("/api/v1/auth/logout");
       setUserData({
         id: 0,
         role: "",
@@ -94,12 +94,11 @@ export const UserAuthProvider = (): UserDataInterface => {
       });
       setLoading(false);
       if (callback) callback(null);
+      return logoutData;
     } catch (err) {
       setLoading(false);
       return { error: err };
     }
-
-    return true;
   };
 
   const getUserData = async () => {

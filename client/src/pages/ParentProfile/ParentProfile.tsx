@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, Dispatch, SetStateAction } from "react";
-// import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
@@ -76,9 +76,9 @@ const ParentProfile: FC<{
     return () => controller.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // if (userData?.role !== "parent") {
-  //   return <Navigate to="/login" />;
-  // }
+  if (userData?.role !== "parent") {
+    return <Navigate to="/login" />;
+  }
   return (
     <ProfilePage
       name={parentInfo.name}
