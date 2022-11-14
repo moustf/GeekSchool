@@ -49,7 +49,7 @@ const App: React.FC = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LandingPage />,
+      element: <LandingPage setIsGotten={setIsGotten} />,
     },
     {
       path: "/signup",
