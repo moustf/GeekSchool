@@ -30,7 +30,7 @@ describe('sign in router', () => {
       .post('/api/v1/auth/login')
       .send({
         email: 'rami@gmail.com',
-        loginPassword: '123',
+        loginPassword: 'root123456',
       })
       .expect(400)
       .expect('Content-Type', /json/)

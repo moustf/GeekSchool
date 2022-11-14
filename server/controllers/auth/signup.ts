@@ -26,13 +26,10 @@ const createParentAccount = async (user: UserTableInterface, children: Array<str
   const parent = await createParent(parentUserId);
   const parentId = parent.getDataValue('id');
 
-  // children?.forEach((child) => {
-  //   addChild(child, parentId);
-  // });
-  // console.log(children.length);
   for (let i = 0; i < children.length; i += 1) {
     addChild(children[i], parentId);
   }
+  return parentId;
 };
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
@@ -40,6 +37,7 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     const {
       name, email, password, confPassword, role, location, mobile, children,
     }: UserRequestInterface = req.body;
+    let id: number;
 
     await userValidation({
       name, email, mobile, password, confPassword, role, location,
@@ -56,25 +54,27 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     };
 
     if (role === 'parent') {
-      await createParentAccount({
+      id = await createParentAccount({
         name, email, password: hashedPassword, mobile, location, role,
       }, children);
     } else if (role === 'teacher') {
       user = await createUser({
         name, email, mobile, password: hashedPassword, role, location,
       });
-      await createTeacher(user.getDataValue('id'));
+      const teacher = await createTeacher(user.getDataValue('id'));
+      id = teacher.getDataValue('id');
     } else {
       user = await createUser({
         name, email, mobile, password: hashedPassword, role, location,
       });
+      id = user.getDataValue('id');
     }
 
-    const token = await signToken({ id: user.getDataValue('id'), name, role });
+    const token = await signToken({ id, name, role });
     res.cookie('token', token).status(201).json(
       {
         data: {
-          id: user.getDataValue('id'),
+          id,
           role,
           name,
         },

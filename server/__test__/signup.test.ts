@@ -111,7 +111,6 @@ describe('Testing signup route', () => {
       })
       .expect(201)
       .end((err, res) => {
-        // console.log(res.body);
         if (err) return done(err);
         expect(res.body.msg).toBe('Account is created successfully!');
         return done();

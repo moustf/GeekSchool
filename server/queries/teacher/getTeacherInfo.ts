@@ -1,9 +1,13 @@
-import { User } from '../../models';
+import { User, Teacher } from '../../models';
 
-const teacherInfoQuery = async (teacherId: number) => User
+const teacherInfoQuery = async (teacherId: number) => Teacher
   .findAll({
     where: {
       id: teacherId,
+    },
+    attributes: [],
+    include: {
+      model: User,
     },
   });
 
