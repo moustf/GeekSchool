@@ -92,6 +92,7 @@ const Assignments: React.FC = () => {
           <section className="assignments-box">
             {assignments.map((assignment: any) => (
               <StudentAssignmentCard
+                key={assignment.title}
                 title={assignment.title}
                 createdAt={assignment.createdAt}
                 description={assignment.description}

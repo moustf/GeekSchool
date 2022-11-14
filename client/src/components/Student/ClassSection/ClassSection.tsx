@@ -36,6 +36,7 @@ const ClassSection: FC = () => {
     <main className="classes">
       {classes.map((classObject: any) => (
         <ClassCard
+          key={classObject.id * 8.1}
           id={classObject.id}
           className={classObject.name}
           teacherName={classObject.Teacher.User.name}

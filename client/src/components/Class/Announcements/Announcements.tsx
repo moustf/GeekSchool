@@ -60,7 +60,7 @@ const Announcements: React.FC = () => {
       <section className="inner-cont">
         {dataToRender.map((object: any) =>
           object.title ? (
-            <section className="test-box">
+            <section className="test-box" key={object.title}>
               <FileTextOutlined style={{ fontSize: "2.5rem", opacity: 0.9 }} />
               <div className="hr" />
               <section className="test-box-inner">

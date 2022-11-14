@@ -47,6 +47,7 @@ const RecommendedPage: React.FC = () => {
 
         {recommended.map((ele) => (
           <RecommendedCard
+            key={ele.description}
             description={ele.description}
             materialLink={ele.material_link}
           />

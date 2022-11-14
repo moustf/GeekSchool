@@ -19,7 +19,6 @@ const StudentProfile: FC<{
   setIsGotten: Dispatch<SetStateAction<boolean>>;
 }> = ({ setIsGotten }) => {
   const { studentId } = useParams();
-  console.log({ studentId });
 
   const { userData } = useUserData();
   const [studentData, setStudentData] = useState<StudentDataInterface>({

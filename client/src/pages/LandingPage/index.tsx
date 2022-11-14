@@ -15,7 +15,6 @@ const LandingPage: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
     <TimeLineSection />
     <LandingFeedback />
     <StatisticLanding />
-
     <Footer />
   </>
 );

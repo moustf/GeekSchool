@@ -39,7 +39,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
   const [activeColor] = useState<string>("profile-active");
   const { studentId } = useParams();
   const navigate = useNavigate();
-  const { logout } = useUserData();
+  const { logout, userData } = useUserData();
 
   const paths = [
     `/student/${studentId}/classes`,
@@ -64,6 +64,8 @@ const ProfilePage: FC<ProfilePageProps> = ({
       message.error(error.response.data.msg);
     }
   };
+
+  console.log(userData, "user data from the the profile page.");
 
   return (
     <main id="profile-page">
@@ -99,6 +101,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
           <nav id="profile-nav">
             {labels.map((pathName, i) => (
               <Nav
+                key={pathName}
                 path={paths[i]}
                 name={pathName}
                 activeColor={activeColor}

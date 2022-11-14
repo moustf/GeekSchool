@@ -29,7 +29,11 @@ const StudentGrades: React.FC = () => {
   return (
     <section className="grades">
       {data.map((oneClass: any) => (
-        <GradeCollapse title={oneClass.Class.name} id={oneClass.Class.id}>
+        <GradeCollapse
+          key={oneClass.Class.id * 0.1}
+          title={oneClass.Class.name}
+          id={oneClass.Class.id}
+        >
           <br />
           <GradesTable
             assignments={oneClass.Class.Assignments}

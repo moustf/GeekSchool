@@ -82,7 +82,7 @@ const Feedback: React.FC = () => {
 
       <section className="feedbacks-boxes">
         {feedbacks.map((feedback: any) => (
-          <FeedbackCard feedback={feedback.feedback} />
+          <FeedbackCard key={feedback.feedback} feedback={feedback.feedback} />
         ))}
       </section>
     </main>

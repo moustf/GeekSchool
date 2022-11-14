@@ -68,6 +68,7 @@ const ClassCard: FC<ClassCardProps> = ({
       >
         {assignments.map((assignment) => (
           <Card
+            key={assignment.id * 2.3}
             id={String(assignment.id)}
             bordered={false}
             className="assignment-row"
@@ -105,6 +106,7 @@ const ClassCard: FC<ClassCardProps> = ({
       >
         {tests.map((test) => (
           <Card
+            key={test.id * 3.44}
             id={String(test.id)}
             bordered={false}
             className="test-row"

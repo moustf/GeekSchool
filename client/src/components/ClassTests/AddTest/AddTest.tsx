@@ -25,10 +25,6 @@ const validateMessages = {
   },
 };
 
-// interface Props {
-//   setValue: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 const AddTest: FC = () => {
   const [isShown, setIsShown] = useState<boolean>(true);
 

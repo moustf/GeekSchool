@@ -4,14 +4,14 @@ import axios from "axios";
 import "./style.css";
 
 interface weekInterface {
-  id: number;
-  subjectName: any | [];
-  saturdays: string;
-  Sundays: string;
-  Mondays: string;
-  Tuesdays: string;
-  Wednesdays: string;
-  Thursdays: string;
+  id?: number;
+  subjectName?: any | [];
+  saturdays?: string;
+  Sundays?: string;
+  Mondays?: string;
+  Tuesdays?: string;
+  Wednesdays?: string;
+  Thursdays?: string;
 }
 
 const columns = [
@@ -45,6 +45,15 @@ const columns = [
   },
 ];
 
+const days: any = {
+  السبت: "saturdays",
+  الأحد: "Sundays",
+  الإثنين: "Mondays",
+  الثلاثاء: "Tuesdays",
+  الأربعاء: "Wednesdays",
+  الخميس: "Thursdays",
+};
+
 const { Panel } = Collapse;
 
 const TeacherSchedule = () => {
@@ -66,7 +75,7 @@ const TeacherSchedule = () => {
 
       const dataSource = subjects.map((e: any, i: number) => {
         const a = classes[i].map((obj: any) => ({
-          [obj.day]: obj.time,
+          [days[obj.day]]: obj.time,
         }));
 
         let scheduleObj = { ...e };

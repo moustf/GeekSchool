@@ -99,7 +99,11 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               >
                 {submittedAssignment.length !== 0 ? (
                   submittedAssignment.map((assignment: any) => (
-                    <div className="student-box" id={assignment.student_id}>
+                    <div
+                      className="student-box"
+                      id={assignment.student_id}
+                      key={assignment.student_id}
+                    >
                       <img alt="student" src={assignment.img} />
                       <h4 className="name">
                         {assignment["Student.User.name"]}
@@ -124,7 +128,11 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               >
                 {notSubmittedAssignment.length !== 0 ? (
                   notSubmittedAssignment.map((assignment: any) => (
-                    <div className="student-box" id={assignment.student_id}>
+                    <div
+                      className="student-box"
+                      id={assignment.student_id}
+                      key={assignment.student_id}
+                    >
                       <h4 className="name">
                         {assignment["Student.User.name"]}
                       </h4>
