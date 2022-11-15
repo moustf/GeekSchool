@@ -13,7 +13,7 @@ describe('Testing get the parent information route', () => {
     supertest(app)
       .get('/api/v1/parent/info')
       .set('Cookie', [
-        'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Itiq2KfZhdixINmF2K3ZhdivIiwicm9sZSI6InBhcmVudCIsImlhdCI6MTY2ODA2NTcwMn0.I9ERwMdnst1DOMyFJ9GCy3Cka39_Xsqh7noxPuMNngo',
+        'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InBhcmVudCIsIm5hbWUiOiLZgtin2LPZhSIsImlhdCI6MTY2ODUzODMxOH0.KP4Qqv9RuLDPOIrYDYfSDDGGf_AfEbG3f-q6Q4shnUo',
       ])
       .expect('Content-Type', /json/)
       .expect(200)
