@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/aria-role */
-import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useEffect, useState, FC } from "react";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -36,11 +36,7 @@ interface classItem {
   id: number | string;
 }
 
-interface ProfileProps {
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
-}
-
-const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
+const TeacherProfile: FC = () => {
   const controller = new AbortController();
   const [students, setStudents] = useState<UserItem[]>([]);
   const [classes, setClasses] = useState<classItem[]>([]);
@@ -108,7 +104,6 @@ const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
       role="teacher"
       image={user?.img}
       visitRole={userData?.role}
-      setIsGotten={setIsGotten}
     >
       <section id="teacher-tables">
         <ProfileCard

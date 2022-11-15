@@ -5,6 +5,7 @@ import HealthProfilePage from "./healthProfile";
 import LandingPage from "./LandingPage";
 import ParentProfile from "./ParentProfile/ParentProfile";
 import TeacherProfile from "./teacherProfile/TeacherProfile";
+import StatisticsPage from "./statisticsPage";
 
 export {
   SignUpPage,
@@ -14,4 +15,5 @@ export {
   TeacherProfile,
   ParentProfile,
   LandingPage,
+  StatisticsPage,
 };

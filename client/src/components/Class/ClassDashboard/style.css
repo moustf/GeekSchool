@@ -21,6 +21,23 @@ header div {
   align-items: center;
 }
 
+header .logout-cont {
+  width: 8rem;
+  height: 100%;
+  display: flex;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-right: 40rem;
+}
+
+header .logout-cont svg {
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+}
+
 header div:nth-child(1) {
   gap: 2rem;
 }

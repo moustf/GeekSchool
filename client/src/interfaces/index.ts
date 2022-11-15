@@ -14,6 +14,7 @@ import {
   ParentInfoInterface,
   ChildrenData,
   TeachersData,
+  dashboardNumberInterface,
 } from "./componentsInterface";
 
 import {
@@ -51,4 +52,5 @@ export {
   ParentInfoInterface,
   ChildrenData,
   TeachersData,
+  dashboardNumberInterface,
 };

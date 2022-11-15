@@ -16,15 +16,25 @@ const AsideLink = ({
   handleClicked,
   activeColor,
   newPath,
-}: AsideLinkInterface) => (
-  <Link
-    to={path}
-    onClick={() => handleClicked(path)}
-    className={newPath === path ? activeColor : undefined}
-  >
-    {icon}
-    {text}
-  </Link>
-);
+}: AsideLinkInterface) =>
+  /^\/class\/[0-9]\/?$/.test(String(newPath)) ? (
+    <Link
+      to={path}
+      onClick={() => handleClicked(path)}
+      className={path.endsWith("/stats") ? activeColor : undefined}
+    >
+      {icon}
+      {text}
+    </Link>
+  ) : (
+    <Link
+      to={path}
+      onClick={() => handleClicked(path)}
+      className={newPath === path ? activeColor : undefined}
+    >
+      {icon}
+      {text}
+    </Link>
+  );
 
 export default AsideLink;

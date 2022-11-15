@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import { Outlet, useNavigate, useParams, Link } from "react-router-dom";
 import { LogoutOutlined } from "@ant-design/icons";
 import { message } from "antd";
@@ -19,7 +19,6 @@ interface ProfilePageProps {
   role: string;
   image: string;
   visitRole: string | undefined;
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
   children?: ReactNode;
 }
 
@@ -32,7 +31,6 @@ const ProfilePage: FC<ProfilePageProps> = ({
   image,
   visitRole,
   children,
-  setIsGotten,
 }) => {
   const { pathname } = window.location;
   const [newPath, setNewPath] = useState<string | null>(pathname);
@@ -58,7 +56,6 @@ const ProfilePage: FC<ProfilePageProps> = ({
       const logoutData = await logout();
 
       message.success(logoutData.data.msg);
-      setIsGotten(false);
       navigate("/");
     } catch (error: any) {
       message.error(error.response.data.msg);

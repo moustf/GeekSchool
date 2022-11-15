@@ -10,12 +10,12 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { message } from "antd";
-import React, { useState } from "react";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import AsideLink from "../../AsideLink";
 import Logo from "../../../assets/new-logo.png";
-import "./style.css";
 import { useUserData } from "../../../context/AuthContext/index";
+import "./style.css";
 
 const icons = [
   <DashboardOutlined />,
@@ -46,6 +46,12 @@ const ClassDashboard: React.FC = () => {
   const { logout, userData } = useUserData();
   const { classId } = useParams();
 
+  useEffect(() => {
+    if (!userData) {
+      navigate("/login");
+    }
+  }, []);
+
   const paths = [
     `/class/${classId}/stats`,
     `/class/${classId}/students`,
@@ -65,14 +71,12 @@ const ClassDashboard: React.FC = () => {
     setNewPath(path);
   };
 
-  const logOut = async () => {
+  const handleLogout = async () => {
     try {
-      const { error } = await logout();
-      if (!userData) {
-        navigate("/");
-      } else {
-        message.error(error);
-      }
+      const logoutData = await logout();
+
+      message.success(logoutData.data.msg);
+      navigate("/");
     } catch (error: any) {
       message.error(error.response.data.msg);
     }
@@ -84,6 +88,9 @@ const ClassDashboard: React.FC = () => {
         <div>
           <MenuOutlined onClick={openAside} />
           <img src={Logo} alt="geek school logo" />
+          <div className="logout-cont">
+            <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
+          </div>
         </div>
         <div>
           <img
@@ -105,9 +112,6 @@ const ClassDashboard: React.FC = () => {
               key={Math.random() * 2}
             />
           ))}
-          <Link to="/">
-            <LogoutOutlined onClick={logOut} />
-          </Link>
         </aside>
         <main>
           <Outlet />

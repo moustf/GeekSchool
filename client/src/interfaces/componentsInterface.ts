@@ -135,6 +135,12 @@ interface TeachersData {
   role: string;
 }
 
+interface dashboardNumberInterface {
+  studentLength: number | string;
+  assignmentLength: number | string;
+  questionsLength: number | string;
+}
+
 export {
   questionInterface,
   recommendedInterface,
@@ -152,4 +158,5 @@ export {
   ParentInfoInterface,
   ChildrenData,
   TeachersData,
+  dashboardNumberInterface,
 };

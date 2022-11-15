@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
 import {
   TimeLineSection,
   LandingHeader,
@@ -7,11 +7,9 @@ import {
   StatisticLanding,
 } from "../../components";
 
-const LandingPage: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
-  setIsGotten,
-}) => (
+const LandingPage: FC = () => (
   <>
-    <LandingHeader setIsGotten={setIsGotten} />
+    <LandingHeader />
     <TimeLineSection />
     <LandingFeedback />
     <StatisticLanding />

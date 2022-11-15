@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import Question from "./components/Class/Questions";
@@ -10,10 +10,10 @@ import {
   TeacherProfile,
   HealthProfilePage,
   LandingPage,
+  StatisticsPage,
 } from "./pages";
 import Assignments from "./components/Class/Assignments/Assignments";
 import { useUserData } from "./context/AuthContext";
-import StatsDummy from "./components/StatsDummy/Dummy";
 import StudentsProfile from "./components/Class/StudentsPage";
 import Class from "./components/Class";
 import Grades from "./components/Class/Grades";
@@ -33,23 +33,20 @@ ConfigProvider.config({
 });
 
 const App: React.FC = () => {
-  const [isGotten, setIsGotten] = useState<boolean>(false);
   const { getUserData } = useUserData();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getUserData();
-
-      if (data) setIsGotten(true);
+      await getUserData();
     };
 
     getData();
-  }, [isGotten]);
+  }, []);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LandingPage setIsGotten={setIsGotten} />,
+      element: <LandingPage />,
     },
     {
       path: "/signup",
@@ -61,7 +58,7 @@ const App: React.FC = () => {
     },
     {
       path: "/student/:studentId",
-      element: <StudentProfile setIsGotten={setIsGotten} />,
+      element: <StudentProfile />,
       children: [
         {
           index: true,
@@ -87,19 +84,23 @@ const App: React.FC = () => {
     },
     {
       path: "/parent",
-      element: <ParentProfile setIsGotten={setIsGotten} />,
+      element: <ParentProfile />,
     },
     {
       path: "/teacher/:teacherId",
-      element: <TeacherProfile setIsGotten={setIsGotten} />,
+      element: <TeacherProfile />,
     },
     {
       path: "/class/:classId",
       element: <Class />,
       children: [
         {
+          index: true,
+          element: <StatisticsPage />,
+        },
+        {
           path: "stats",
-          element: <StatsDummy />,
+          element: <StatisticsPage />,
         },
         {
           path: "students",

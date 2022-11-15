@@ -1,6 +1,6 @@
 import { message } from "antd";
 import axios from "axios";
-import { FC, useEffect, useState, Dispatch, SetStateAction } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProfilePage } from "..";
 import { useUserData } from "../../context/AuthContext";
@@ -15,9 +15,7 @@ interface StudentDataInterface {
   role: string;
 }
 
-const StudentProfile: FC<{
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
-}> = ({ setIsGotten }) => {
+const StudentProfile: FC = () => {
   const { studentId } = useParams();
 
   const { userData } = useUserData();
@@ -55,7 +53,6 @@ const StudentProfile: FC<{
       role={studentData?.role}
       image={studentData?.img}
       visitRole={userData?.role}
-      setIsGotten={setIsGotten}
     />
   );
 };

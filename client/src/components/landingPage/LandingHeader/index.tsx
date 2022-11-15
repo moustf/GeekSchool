@@ -1,4 +1,4 @@
-import { FC, Dispatch, SetStateAction } from "react";
+import { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Image, Typography, message } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
@@ -10,10 +10,8 @@ import "./LandingHeader.css";
 
 const { Title, Text } = Typography;
 
-const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
-  setIsGotten,
-}) => {
-  const { id } = useUserData().userData;
+const LandingHeader: FC = () => {
+  const id = useUserData()?.userData?.id;
   const userRole = useUserData().userData?.role;
   const { logout } = useUserData();
   const navigate = useNavigate();
@@ -23,7 +21,6 @@ const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
       const logoutData = await logout();
 
       message.success(logoutData.data.msg);
-      setIsGotten(false);
       navigate("/");
     } catch (error: any) {
       message.error(error.response.data.msg);
