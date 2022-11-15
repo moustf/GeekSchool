@@ -4,9 +4,9 @@ import { CustomError } from '../../utils';
 
 const getStudentClasses = async (req: any, res: Response, next: NextFunction) => {
   try {
-    const { id } = req.user;
+    const { studentId } = req.params;
 
-    const studentClasses = await getStudentClassesQuery(Number(id) || 0);
+    const studentClasses = await getStudentClassesQuery(Number(studentId) || 0);
 
     if (studentClasses.length === 0) {
       throw new CustomError(404, 'The user id you searched with have no classes!');
