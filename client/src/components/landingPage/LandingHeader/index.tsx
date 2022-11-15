@@ -50,8 +50,8 @@ const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
                 userRole === "parent"
                   ? "/parent"
                   : userRole === "student"
-                    ? `/student/${id}`
-                    : `/teacher/${id}`
+                  ? `/student/${id}`
+                  : `/teacher/${id}`
               }
               className="user-profile"
             >

@@ -10,7 +10,7 @@ const getParentInfoQuery = (parentId: number) => User.findAll({
       exclude: ['createdAt', 'updatedAt'],
     },
     where: {
-      user_id: parentId,
+      id: parentId,
     },
   },
 });
