@@ -7,7 +7,8 @@
 
 .grades {
   width: 100%;
-  min-height: 20rem;
+  height: 32rem;
+  overflow: auto;
   padding: 2rem 3rem;
   background-color: #fff;
   border-radius: 1rem;

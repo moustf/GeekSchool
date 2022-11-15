@@ -84,7 +84,13 @@ const Grades = () => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        width: "100% !important",
+        height: "32rem !important",
+        overflow: "auto !important",
+      }}
+    >
       <h1 className="title">الدرجات</h1>
       <div className="table_wrapper">
         <Table
@@ -94,7 +100,7 @@ const Grades = () => {
           pagination={{ pageSize: 4 }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

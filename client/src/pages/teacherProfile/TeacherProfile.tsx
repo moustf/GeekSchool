@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/aria-role */
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { message } from "antd";
@@ -6,25 +7,27 @@ import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
 import avtar from "../../assets/class_avatar.png";
-import "./style.css";
 import { useUserData } from "../../context/AuthContext";
+import "./style.css";
 
 interface UserItem {
-  id: number;
   email: string;
-  name: string;
   img: string;
-  location: string;
+  name: string;
+  student_id: number;
+  teacher_id: number;
   mobile: string;
+  location: string;
 }
 
 const initUser: UserItem = {
-  id: 1,
+  student_id: 0,
+  teacher_id: 0,
   email: "",
   name: "",
   img: "",
-  location: "",
   mobile: "",
+  location: "Gaza",
 };
 
 interface classItem {
@@ -112,7 +115,8 @@ const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
           data={students.map((student: UserItem) => ({
             img: student.img,
             name: student.name,
-            id: student.id,
+            id: student.student_id,
+            mobile: "0123456789",
           }))}
           title="الطلاب"
           type="students"

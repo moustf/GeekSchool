@@ -1,19 +1,30 @@
 import { FC, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 import ClassCard from "./ClassCard/ClassCard";
+import { useUserData } from "../../../context/AuthContext";
 import "./ClassSection.css";
 
 const ClassSection: FC = () => {
   const [classes, setClasses] = useState<Array<object>>([]);
+  const { studentId } = useParams();
+  const { userData } = useUserData();
+  let id: number;
+
+  if (userData.role === "student") {
+    id = userData.id;
+  } else {
+    id = Number(studentId);
+  }
 
   const source = axios.CancelToken.source();
 
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const data = await axios.get("/api/v1/student/classes");
+        const data = await axios.get(`/api/v1/student/${id}/classes`);
 
         setClasses(data.data.data);
       } catch (error) {

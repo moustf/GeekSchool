@@ -49,8 +49,8 @@ const StudentProfile: FC<{
   return (
     <ProfilePage
       name={studentData?.name}
-      location={studentData?.location}
-      mobile={studentData?.mobile}
+      location={studentData?.location || "لا يوجد"}
+      mobile={studentData?.mobile || "لا يوجد"}
       email={studentData?.email}
       role={studentData?.role}
       image={studentData?.img}

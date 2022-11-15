@@ -43,11 +43,11 @@ const ProfilePage: FC<ProfilePageProps> = ({
 
   const paths = [
     `/student/${studentId}/classes`,
-    `/student/${studentId}/grades`,
     `/student/${studentId}/tests`,
+    `/student/${studentId}/grades`,
     `/student/${studentId}/health`,
   ];
-  const labels = ["الصفوف", "الدرجات", "الاختبارات", "الصحة"];
+  const labels = ["الصفوف", "الاختبارات", "الدرجات", "الصحة"];
 
   const handleClicked = (path: string): void => {
     setNewPath(path);
@@ -64,8 +64,6 @@ const ProfilePage: FC<ProfilePageProps> = ({
       message.error(error.response.data.msg);
     }
   };
-
-  console.log(userData, "user data from the the profile page.");
 
   return (
     <main id="profile-page">
@@ -99,17 +97,47 @@ const ProfilePage: FC<ProfilePageProps> = ({
         />
         {role === "student" && (
           <nav id="profile-nav">
-            {labels.map((pathName, i) => (
-              <Nav
-                key={pathName}
-                path={paths[i]}
-                name={pathName}
-                activeColor={activeColor}
-                handleClicked={handleClicked}
-                newPath={newPath}
-                testPath={paths[i]}
-              />
-            ))}
+            {userData.role === "student"
+              ? labels.map((pathName, i) => (
+                  <Nav
+                    key={pathName}
+                    path={paths[i]}
+                    name={pathName}
+                    activeColor={activeColor}
+                    handleClicked={handleClicked}
+                    newPath={newPath}
+                    testPath={paths[i]}
+                  />
+                ))
+              : userData.role === "parent"
+              ? labels
+                  .filter((label) => label !== "الصفوف")
+                  .map((pathName, i) => (
+                    <Nav
+                      key={pathName}
+                      path={paths.slice(1)[i]}
+                      name={pathName}
+                      activeColor={activeColor}
+                      handleClicked={handleClicked}
+                      newPath={newPath}
+                      testPath={paths[i]}
+                    />
+                  ))
+              : labels
+                  .filter(
+                    (label) => label !== "الصفوف" && label !== "الاختبارات"
+                  )
+                  .map((pathName, i) => (
+                    <Nav
+                      key={pathName}
+                      path={paths.slice(2)[i]}
+                      name={pathName}
+                      activeColor={activeColor}
+                      handleClicked={handleClicked}
+                      newPath={newPath}
+                      testPath={paths[i]}
+                    />
+                  ))}
           </nav>
         )}
         {role === "teacher" && <TeacherSchedule />}

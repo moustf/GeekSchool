@@ -64,6 +64,10 @@ const App: React.FC = () => {
       element: <StudentProfile setIsGotten={setIsGotten} />,
       children: [
         {
+          index: true,
+          element: <ClassSection />,
+        },
+        {
           path: "classes",
           element: <ClassSection />,
         },

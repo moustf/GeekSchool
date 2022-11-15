@@ -1,12 +1,12 @@
 import { Avatar, List } from "antd";
 import { ElementType } from "react";
+import { Link } from "react-router-dom";
 import {
   WhatsAppOutlined,
   MailOutlined,
   AppstoreAddOutlined,
 } from "@ant-design/icons";
 import "./style.css";
-import { Link } from "react-router-dom";
 
 interface DataType {
   name: string;
@@ -66,7 +66,7 @@ const ProfileCard: ElementType = ({
                   title={
                     type === "students" ? (
                       <Link
-                        to={`/student/${item.id}/classes`}
+                        to={`/student/${item.id}/`}
                         style={{
                           fontSize: "1rem",
                           color: "var(--light-black)",
@@ -76,7 +76,7 @@ const ProfileCard: ElementType = ({
                       </Link>
                     ) : (
                       <Link
-                        to={`/class/${item.id}/stats`}
+                        to={`/class/${item.id}/`}
                         style={{
                           fontSize: "1rem",
                           color: "var(--light-black)",
