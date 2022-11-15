@@ -13,7 +13,7 @@ const { Title, Text } = Typography;
 const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
   setIsGotten,
 }) => {
-  const userId = useUserData().userData?.id;
+  const { id } = useUserData().userData;
   const userRole = useUserData().userData?.role;
   const { logout } = useUserData();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
   return (
     <main className="landing-section">
       <header className="landing-header">
-        {!userId && (
+        {!id && (
           <section className="buttons">
             <Link to="/login">
               <Button type="primary">تسجيل دخول</Button>
@@ -50,8 +50,8 @@ const LandingHeader: FC<{ setIsGotten: Dispatch<SetStateAction<boolean>> }> = ({
                 userRole === "parent"
                   ? "/parent"
                   : userRole === "student"
-                  ? `/student/${userId}`
-                  : "/teacher"
+                    ? `/student/${id}`
+                    : `/teacher/${id}`
               }
               className="user-profile"
             >
