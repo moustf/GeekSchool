@@ -74,6 +74,9 @@ const ProfileCard: ElementType = ({
                       >
                         {item.name}
                       </Link>
+                    ) : type === "teachers" ? (
+                      // ! No body can access the teacher profile but himself!
+                      item.name
                     ) : (
                       <Link
                         to={`/class/${item.id}/`}

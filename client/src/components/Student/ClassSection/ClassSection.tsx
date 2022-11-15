@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { message } from "antd";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 import ClassCard from "./ClassCard/ClassCard";
 import { useUserData } from "../../../context/AuthContext";
@@ -27,13 +27,9 @@ const ClassSection: FC = () => {
         const data = await axios.get(`/api/v1/student/${id}/classes`);
 
         setClasses(data.data.data);
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops... Something went wrong!",
-          text: `${error}`,
-          footer: '<a href="">Why do I have this issue?</a>',
-        });
+      } catch (err) {
+        message.error(`You can't access student classes!
+        ${err}`);
       }
     };
 

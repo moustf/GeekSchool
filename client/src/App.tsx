@@ -65,7 +65,7 @@ const App: React.FC = () => {
       children: [
         {
           index: true,
-          element: <ClassSection />,
+          element: <HealthProfilePage />,
         },
         {
           path: "classes",
@@ -90,7 +90,7 @@ const App: React.FC = () => {
       element: <ParentProfile setIsGotten={setIsGotten} />,
     },
     {
-      path: "/teacher",
+      path: "/teacher/:teacherId",
       element: <TeacherProfile setIsGotten={setIsGotten} />,
     },
     {

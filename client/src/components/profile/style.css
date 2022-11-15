@@ -186,6 +186,8 @@ nav,
 }
 
 #reports {
+  width: 100%;
+  min-height: 7rem;
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 1.5rem;

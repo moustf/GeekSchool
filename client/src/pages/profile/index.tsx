@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams, Link } from "react-router-dom";
 import { LogoutOutlined } from "@ant-design/icons";
 import { message } from "antd";
 import UserHeader from "../../components/profile/UserHeader";
@@ -69,7 +69,9 @@ const ProfilePage: FC<ProfilePageProps> = ({
     <main id="profile-page">
       <header>
         <div>
-          <img src={Logo} alt="geek school logo" />
+          <Link to="/">
+            <img src={Logo} alt="geek school logo" />
+          </Link>
         </div>
         <div className="logout-cont">
           <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
@@ -82,7 +84,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
         </div>
       </header>
 
-      {role === "student" && (
+      {role !== "student" && (
         <Reports studentId={studentId} visitRole={visitRole} />
       )}
 
@@ -120,7 +122,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
                       activeColor={activeColor}
                       handleClicked={handleClicked}
                       newPath={newPath}
-                      testPath={paths[i]}
+                      testPath={paths.slice(1)[i]}
                     />
                   ))
               : labels
@@ -135,7 +137,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
                       activeColor={activeColor}
                       handleClicked={handleClicked}
                       newPath={newPath}
-                      testPath={paths[i]}
+                      testPath={paths.slice(2)[i]}
                     />
                   ))}
           </nav>
