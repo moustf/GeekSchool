@@ -27,6 +27,7 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 1.1rem;
+  margin-right: -5rem;
 }
 
 #profile-page header .logout-cont svg {

@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/aria-role */
 import { useEffect, useState, FC } from "react";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
@@ -42,13 +41,8 @@ const TeacherProfile: FC = () => {
   const [classes, setClasses] = useState<classItem[]>([]);
   const [user, setUser] = useState<UserItem>(initUser);
   const { userData } = useUserData();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData.role !== "teacher") {
-      navigate("/login");
-    }
-
     const fetchTeacherInfo = async () => {
       try {
         const data = await axios.get("/api/v1/teacher/info", {

@@ -33,7 +33,8 @@ ConfigProvider.config({
 });
 
 const App: React.FC = () => {
-  const { getUserData } = useUserData();
+  const { getUserData, userData } = useUserData();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -58,11 +59,11 @@ const App: React.FC = () => {
     },
     {
       path: "/student/:studentId",
-      element: <StudentProfile />,
+      element: userData ? <StudentProfile /> : <LoginPage />,
       children: [
         {
           index: true,
-          element: <HealthProfilePage />,
+          element: userData ? <HealthProfilePage /> : <LoginPage />,
         },
         {
           path: "classes",
@@ -84,19 +85,19 @@ const App: React.FC = () => {
     },
     {
       path: "/parent",
-      element: <ParentProfile />,
+      element: userData?.role === 'parent' ? <ParentProfile /> : <LoginPage />,
     },
     {
       path: "/teacher/:teacherId",
-      element: <TeacherProfile />,
+      element: userData?.role === 'teacher' ? <TeacherProfile /> : <LoginPage />,
     },
     {
       path: "/class/:classId",
-      element: <Class />,
+      element: userData ? <Class /> : <LoginPage />,
       children: [
         {
           index: true,
-          element: <StatisticsPage />,
+          element: userData ? <StatisticsPage /> : <LoginPage />,
         },
         {
           path: "stats",

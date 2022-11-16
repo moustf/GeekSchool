@@ -1,5 +1,4 @@
 import { FC, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
@@ -41,13 +40,8 @@ const ParentProfile: FC = () => {
     },
   ]);
   const controller = new AbortController();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData.role !== "parent") {
-      navigate("/login");
-    }
-
     const fetchData = async () => {
       const data = await axios.get("/api/v1/parent/info", {
         signal: controller.signal,

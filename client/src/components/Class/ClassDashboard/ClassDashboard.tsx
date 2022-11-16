@@ -10,8 +10,8 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { message } from "antd";
-import React, { useState, useEffect } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Outlet, useNavigate, useParams, Link, useLocation } from "react-router-dom";
 import AsideLink from "../../AsideLink";
 import Logo from "../../../assets/new-logo.png";
 import { useUserData } from "../../../context/AuthContext/index";
@@ -38,19 +38,13 @@ const labels = [
 ];
 
 const ClassDashboard: React.FC = () => {
-  const { pathname } = window.location;
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState<string>("close");
   const [newPath, setNewPath] = useState<string | null>(pathname);
   const [activeColor] = useState<string>("active");
-  const { logout, userData } = useUserData();
+  const { logout } = useUserData();
   const { classId } = useParams();
-
-  useEffect(() => {
-    if (!userData) {
-      navigate("/login");
-    }
-  }, []);
 
   const paths = [
     `/class/${classId}/stats`,
@@ -87,7 +81,7 @@ const ClassDashboard: React.FC = () => {
       <header>
         <div>
           <MenuOutlined onClick={openAside} />
-          <img src={Logo} alt="geek school logo" />
+          <Link to='/'><img src={Logo} alt="geek school logo" /></Link>
           <div className="logout-cont">
             <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
           </div>
