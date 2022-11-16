@@ -72,10 +72,15 @@ header div:nth-child(2) img {
   height: 92vh;
 }
 
-#main-layout main {
-  height: 100%;
+#main-layout .outlet-layout {
+  height: 50rem;
   width: 100%;
   padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 aside {

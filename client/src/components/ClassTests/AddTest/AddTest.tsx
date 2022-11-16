@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Button, Form, Input, DatePicker } from "antd";
@@ -25,7 +25,7 @@ const validateMessages = {
   },
 };
 
-const AddTest: FC = () => {
+const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({ setTest }) => {
   const [isShown, setIsShown] = useState<boolean>(true);
 
   const onFinish = async (fieldValues: any) => {
@@ -70,7 +70,10 @@ const AddTest: FC = () => {
           >
             <CloseSquareOutlined
               className="close-icon"
-              onClick={() => setIsShown(false)}
+              onClick={() => {
+                setIsShown(false);
+                setTest((prevValue) => !prevValue);
+              }}
             />
             <Form.Item
               name="exam-title"
@@ -119,6 +122,7 @@ const AddTest: FC = () => {
                   fontSize: "large",
                   fontWeight: "bold",
                   boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.25)",
+                  marginTop: '1rem',
                 }}
               >
                 إضافة الإختبار

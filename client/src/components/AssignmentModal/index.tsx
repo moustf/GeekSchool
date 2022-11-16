@@ -2,8 +2,8 @@ import { Button, Modal, Form, Input } from "antd";
 import React, { useState } from "react";
 import { CloseOutlined, FileTextOutlined } from "@ant-design/icons";
 import axios from "axios";
-import "./index.css";
 import Swal from "sweetalert2";
+import "./index.css";
 
 const AssignmentModal: React.FC = () => {
   const [form] = Form.useForm();
@@ -59,10 +59,28 @@ const AssignmentModal: React.FC = () => {
         footer={null}
         open={visible}
         onCancel={handleCancel}
-        width="60%"
+        width="67%"
+        bodyStyle={{
+          height: '80vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+        }}
         closeIcon={
           <CloseOutlined
-            style={{ color: "#0CBE8A", border: "2px solid #0CBE8A" }}
+            className="close-icon"
+            style={{
+              margin: '2rem',
+              color: "#0CBE8A",
+              border: "2px solid #0CBE8A",
+              fontSize: '40px',
+              fontWeight: 'bold',
+              position: 'absolute',
+              right: '70rem',
+              top: '1rem',
+            }}
           />
         }
       >
@@ -74,7 +92,7 @@ const AssignmentModal: React.FC = () => {
         >
           <Form.Item
             label="عنوان المهمة"
-            style={{ width: "70%" }}
+            style={{ width: "90%", height: '5rem' }}
             name="title"
             rules={[
               {
@@ -83,12 +101,12 @@ const AssignmentModal: React.FC = () => {
               },
             ]}
           >
-            <Input className="input" placeholder="عنوان المهمة" style={{}} />
+            <Input className="input" placeholder="عنوان المهمة" />
           </Form.Item>
 
           <Form.Item
             label="تفاصيل المهمة"
-            style={{ width: "70%" }}
+            style={{ width: "90%", height: '10rem' }}
             name="description"
             rules={[
               {
@@ -98,6 +116,7 @@ const AssignmentModal: React.FC = () => {
             ]}
           >
             <Input.TextArea
+              className="textarea"
               style={{ borderRadius: "8px", height: "100px" }}
               placeholder="تفاصيل المهمة"
             />

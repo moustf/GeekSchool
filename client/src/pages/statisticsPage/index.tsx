@@ -25,36 +25,32 @@ const StatisticsPage: any = () => {
     const area = new Area("dashboard-chart", {
       data: [
         {
-          timePeriod: "2006 Q3",
+          timePeriod: "طلاب عدد: 2",
           value: 1,
         },
         {
-          timePeriod: "2015 Q3",
+          timePeriod: "طلاب عدد: 4",
           value: 2,
         },
         {
-          timePeriod: "2002 Q3",
+          timePeriod: "طلاب عدد: 6",
           value: 3,
         },
         {
-          timePeriod: "2010 Q3",
+          timePeriod: "طلاب عدد: 8",
           value: 4,
         },
         {
-          timePeriod: "2008 Q3",
-          value: 5,
+          timePeriod: "طلاب عدد: 10",
         },
         {
-          timePeriod: "2008 Q3",
-          value: 8,
+          timePeriod: "12",
         },
         {
-          timePeriod: "2008 Q3",
-          value: 6,
+          timePeriod: "طلاب عدد: 14",
         },
         {
-          timePeriod: "2008 Q3",
-          value: 7,
+          timePeriod: "طلاب عدد: 16",
         },
       ],
       xField: "timePeriod",
@@ -80,8 +76,7 @@ const StatisticsPage: any = () => {
       );
       setDashboardNumber({
         studentLength: statisticsData.data.data.studentsNum.studentsCount,
-        assignmentLength:
-          statisticsData.data.data.assignmentsNum.assignmentsCount,
+        assignmentLength: statisticsData.data.data.assignmentsNum.assignmentsCount,
         questionsLength: statisticsData.data.data.questionsNum.questionsCount,
       });
     } catch (err: any) {

@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { Input, Button } from "antd";
+import { useUserData } from "../../../context/AuthContext";
 import "./style.css";
 
 type Props = {
@@ -17,6 +18,7 @@ const AnsweredQuestion: FC<Props> = ({
   handleChange,
 }) => {
   const [edit, setEdit] = useState(false);
+  const { userData } = useUserData();
 
   return (
     <div className="question_card">
@@ -39,13 +41,13 @@ const AnsweredQuestion: FC<Props> = ({
       ) : (
         <div className="question_input">
           <p className="answer">{answer}</p>
-          <Button
+            {userData.role === 'teacher' && <Button
             type="primary"
             className="edit_btn"
             onClick={() => setEdit(true)}
           >
             Edit
-          </Button>{" "}
+            </Button>}
         </div>
       )}
     </div>

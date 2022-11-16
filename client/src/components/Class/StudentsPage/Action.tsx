@@ -1,6 +1,6 @@
 import React from "react";
-import "./style.css";
 import { UserOutlined, DeleteOutlined } from "@ant-design/icons";
+import "./style.css";
 
 type Props = {
   id: string;

@@ -63,7 +63,7 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
 
   return (
     <div>
-      <Card style={{ margin: "5px" }}>
+      <Card className="teacher-assignment-card">
         <div className="card-title">
           <div className="title-content">
             <div className="icon-title">
@@ -75,8 +75,8 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
           </div>
 
           <div className="title-side">
-            <p style={{ color: "#7C7C7C" }}>Posted: {createdAt}</p>
-            <DeleteFilled style={{ color: "red" }} />
+            <p style={{ color: "#7C7C7C" }}>نشرت في: {createdAt.split('T')[0]}, الساعة: {createdAt.split('T')[1].slice(0, 8)}</p>
+            <DeleteFilled style={{ color: "red", fontSize: '1.3rem' }} />
           </div>
         </div>
 

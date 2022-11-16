@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Pagination } from "antd";
+import { Pagination, Typography } from "antd";
 import type { PaginationProps } from "antd";
 import { useParams } from "react-router-dom";
 import { RecommendedCard } from "../../components";
 import AddRecommended from "../../components/AddRecommended";
 import { useUserData } from "../../context/AuthContext";
+import './style.css';
+
+const { Title } = Typography;
 
 type recommendedType = {
   description: string;
@@ -40,8 +43,8 @@ const RecommendedPage: React.FC = () => {
   return (
     <div className="card">
       <div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h2>توصيات إضافية</h2>
+        <div className="add-box">
+          <Title level={1} className="title">توصيات إضافية</Title>
           {useUserData().userData?.role === "teacher" ? <AddRecommended /> : ""}
         </div>
 

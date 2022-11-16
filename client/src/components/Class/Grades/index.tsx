@@ -85,11 +85,7 @@ const Grades = () => {
 
   return (
     <div
-      style={{
-        width: "100% !important",
-        height: "32rem !important",
-        overflow: "auto !important",
-      }}
+      className="grades-box"
     >
       <h1 className="title">الدرجات</h1>
       <div className="table_wrapper">

@@ -13,6 +13,7 @@ const { Search } = Input;
 
 const Assignments: React.FC = () => {
   const [assignments, setAssignments] = useState<Array<object>>([]);
+  const [assignmentsCopy, setAssignmentsCopy] = useState<Array<object>>([]);
   const [addTest, setAddTest] = useState<boolean>(false);
 
   const { classId } = useParams();
@@ -21,9 +22,7 @@ const Assignments: React.FC = () => {
 
   // ? The search function.
   const onSearch = (value: string) =>
-    setAssignments((prevValue: any) =>
-      prevValue.filter((object: any) => object.title.includes(value))
-    );
+    setAssignmentsCopy(assignments.filter((assignment: any) => assignment.title.includes(value)));
 
   // ? Button events
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -56,8 +55,10 @@ const Assignments: React.FC = () => {
 
       if (data.data.data.count) {
         setAssignments(data.data.data.rows);
+        setAssignmentsCopy(data.data.data.rows);
       } else {
         setAssignments(data.data.data);
+        setAssignmentsCopy(data.data.data);
       }
     };
 
@@ -69,7 +70,7 @@ const Assignments: React.FC = () => {
 
   return (
     <>
-      {addTest && <AddTest />}
+      {addTest && <AddTest setTest={setAddTest} />}
       <main className="class-assignment">
         <h1 className="assignment-title">التكليفات</h1>
         <section className="assignment-add-search">
@@ -79,18 +80,18 @@ const Assignments: React.FC = () => {
             onSearch={onSearch}
             enterButton
           />
-          <Dropdown overlay={menu} className="dropdown">
+          {role === 'teacher' && <Dropdown overlay={menu} className="dropdown">
             <Button className="dropdown-button">
               <Space>
                 <PlusOutlined className="plus-icon" />
                 إضافة
               </Space>
             </Button>
-          </Dropdown>
+          </Dropdown>}
         </section>
         {role === "student" && (
           <section className="assignments-box">
-            {assignments.map((assignment: any) => (
+            {assignmentsCopy.map((assignment: any) => (
               <StudentAssignmentCard
                 key={assignment.title}
                 title={assignment.title}
@@ -101,8 +102,8 @@ const Assignments: React.FC = () => {
           </section>
         )}
         {role === "teacher" && (
-          <section className="assignment-box">
-            {assignments.map((assignment: any) => (
+          <section className="assignments-box">
+            {assignmentsCopy.map((assignment: any) => (
               <TeacherAssignmentCard
                 id={assignment.id}
                 title={assignment.title}

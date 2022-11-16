@@ -1,10 +1,12 @@
 .add-test-cont {
   width: 100%;
-  height: 81vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  z-index: 100;
 }
 
 .add-test-cont .add-test-form {
@@ -42,7 +44,7 @@
 }
 
 .add-test-cont .add-test-form .form-item label {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   color: #ADADAD !important;
   font-weight: bolder;
 }
@@ -52,8 +54,9 @@
   height: 60px !important;
   margin-left: 2.5rem;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
 }
+
 .add-test-cont .add-test-form .form-item .input:focus,
 .add-test-cont .add-test-form .form-item .input:hover,
 .add-test-cont .add-test-form .form-item .textarea:focus,

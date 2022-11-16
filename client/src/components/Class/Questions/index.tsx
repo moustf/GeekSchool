@@ -59,7 +59,7 @@ const Questions: FC<Props> = () => {
   return (
     <div className="card">
       <div>
-        <h1 className="title">الإسئلة</h1>
+        <h1 className="title">الأسئلة</h1>
         {questions.map((q) =>
           q.answer ? (
             <AnsweredQuestion

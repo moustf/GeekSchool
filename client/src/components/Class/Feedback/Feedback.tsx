@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import axios, { AxiosResponse } from "axios";
-import Swal from "sweetalert2";
 import FeedbackCard from "../../FeedbackCard";
 import "./Feedback.css";
 
@@ -32,24 +31,11 @@ const Feedback: React.FC = () => {
       feedback: values.feedback,
     });
 
-    Swal.fire({
-      title: "The feedback is added successfully!",
-      showClass: {
-        popup: "animate__animated animate__fadeInDown",
-      },
-      hideClass: {
-        popup: "animate__animated animate__fadeOutUp",
-      },
-    });
+    message.success('The feedback is added successfully!');
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: `Something went wrong!
-      ${errorInfo}`,
-    });
+    message.error(`${errorInfo}`);
   };
 
   return (

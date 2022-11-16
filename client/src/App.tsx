@@ -20,6 +20,7 @@ import Grades from "./components/Class/Grades";
 import StudentGrades from "./components/Student/Grades/StudentGrades";
 import ClassSection from "./components/Student/ClassSection/ClassSection";
 import Calender from "./components/Calender";
+import { Announcements } from "./components";
 import "antd/dist/antd.variable.min.css";
 import "./style.css";
 import StudentProfile from "./pages/studentProfile";
@@ -85,11 +86,12 @@ const App: React.FC = () => {
     },
     {
       path: "/parent",
-      element: userData?.role === 'parent' ? <ParentProfile /> : <LoginPage />,
+      element: userData?.role === "parent" ? <ParentProfile /> : <LoginPage />,
     },
     {
       path: "/teacher/:teacherId",
-      element: userData?.role === 'teacher' ? <TeacherProfile /> : <LoginPage />,
+      element:
+        userData?.role === "teacher" ? <TeacherProfile /> : <LoginPage />,
     },
     {
       path: "/class/:classId",
@@ -97,11 +99,15 @@ const App: React.FC = () => {
       children: [
         {
           index: true,
-          element: userData ? <StatisticsPage /> : <LoginPage />,
+          element: userData?.role === 'teacher' ? <StatisticsPage /> : userData?.role === 'student' ? <Announcements /> : <LoginPage />,
         },
         {
           path: "stats",
           element: <StatisticsPage />,
+        },
+        {
+          path: "announcements",
+          element: <Announcements />,
         },
         {
           path: "students",

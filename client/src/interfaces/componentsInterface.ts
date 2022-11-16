@@ -19,7 +19,7 @@ interface feedbackInterface {
 
 interface announcementCard {
   description: string;
-  createdAt: string;
+  createdAt: string[];
 }
 
 interface profileNavLinkInterface {

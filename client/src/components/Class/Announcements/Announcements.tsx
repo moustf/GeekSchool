@@ -56,7 +56,7 @@ const Announcements: React.FC = () => {
 
   return (
     <main className="class-announcement">
-      <h1 className="title">Announcements</h1>
+      <h1 className="title">الاعلانات</h1>
       <section className="inner-cont">
         {dataToRender.map((object: any) =>
           object.title ? (
@@ -68,7 +68,7 @@ const Announcements: React.FC = () => {
                 <p className="test-date">
                   {`${object.date.day}/${object.date.month}/${object.date.year}`}
                   &nbsp; &nbsp; | &nbsp; &nbsp;
-                  {object.date.time[1].slice(0, 11)}
+                  {object.date.time[1].slice(0, 8)}
                 </p>
                 <p className="test-notes">{object.notes}</p>
               </section>
@@ -76,7 +76,7 @@ const Announcements: React.FC = () => {
           ) : (
             <AnnouncementCard
               description={object.description}
-              createdAt={object.createdAt.split("T")[0]}
+                createdAt={[object.createdAt.split("T")[0], object.createdAt.split("T")[1]]}
             />
           )
         )}
