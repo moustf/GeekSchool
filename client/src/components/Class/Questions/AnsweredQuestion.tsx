@@ -41,13 +41,15 @@ const AnsweredQuestion: FC<Props> = ({
       ) : (
         <div className="question_input">
           <p className="answer">{answer}</p>
-            {userData.role === 'teacher' && <Button
-            type="primary"
-            className="edit_btn"
-            onClick={() => setEdit(true)}
-          >
-            Edit
-            </Button>}
+          {userData.role === "teacher" && (
+            <Button
+              type="primary"
+              className="edit_btn"
+              onClick={() => setEdit(true)}
+            >
+              Edit
+            </Button>
+          )}
         </div>
       )}
     </div>

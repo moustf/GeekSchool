@@ -6,7 +6,7 @@ interface AsideLinkInterface {
   path: string;
   activeColor: string;
   newPath: string | null;
-  role: string,
+  role: string;
   handleClicked: any;
 }
 
@@ -24,11 +24,11 @@ const AsideLink = ({
       to={path}
       onClick={() => handleClicked(path)}
       className={
-        role === 'teacher' && path.endsWith("/stats")
+        role === "teacher" && path.endsWith("/stats")
           ? activeColor
-          : role === 'student' && path.endsWith("/announcements")
-            ? activeColor
-            : undefined
+          : role === "student" && path.endsWith("/announcements")
+          ? activeColor
+          : undefined
       }
     >
       {icon}

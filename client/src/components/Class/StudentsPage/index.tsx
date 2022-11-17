@@ -54,7 +54,7 @@ const StudentsProfile = () => {
         data.map((s: any) => ({
           id: s.student_id,
           name: s.name,
-          mobile: s.mobile || 'لا يوجد',
+          mobile: s.mobile || "لا يوجد",
           img: s.img,
           parentName: s["Student.Parent.User.name"],
         }))
@@ -73,7 +73,7 @@ const StudentsProfile = () => {
     await fetchData();
   };
   const handelStudentProfile = async (id: number) => {
-    if (userData.role === 'teacher') navigate(`/student/${id}`);
+    if (userData.role === "teacher") navigate(`/student/${id}`);
   };
 
   useEffect(() => {
@@ -85,12 +85,13 @@ const StudentsProfile = () => {
     name: <NameCell name={s.name} image={s.img} />,
     mobile: s.mobile,
     parentName: s.parentName,
-    action:
-      userData.role === 'teacher' && <Action
+    action: userData.role === "teacher" && (
+      <Action
         id={s.id}
         handelDeleteStudent={() => handelDeleteStudent(s.id)}
         handelStudentProfile={() => handelStudentProfile(s.id)}
-      />,
+      />
+    ),
   }));
 
   if (loading) {
@@ -119,7 +120,11 @@ const StudentsProfile = () => {
       <h1 className="title">الطلاب</h1>
       <div className="table_wrapper">
         <Table
-          columns={userData.role === 'teacher' ? columns : columns.slice(0, columns.length - 1)}
+          columns={
+            userData.role === "teacher"
+              ? columns
+              : columns.slice(0, columns.length - 1)
+          }
           dataSource={dataSource}
           size="middle"
           pagination={{ pageSize: 4 }}

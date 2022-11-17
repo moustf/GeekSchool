@@ -31,7 +31,7 @@ const Feedback: React.FC = () => {
       feedback: values.feedback,
     });
 
-    message.success('The feedback is added successfully!');
+    message.success("The feedback is added successfully!");
   };
 
   const onFinishFailed = (errorInfo: any) => {

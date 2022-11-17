@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { RecommendedCard } from "../../components";
 import AddRecommended from "../../components/AddRecommended";
 import { useUserData } from "../../context/AuthContext";
-import './style.css';
+import "./style.css";
 
 const { Title } = Typography;
 
@@ -44,7 +44,9 @@ const RecommendedPage: React.FC = () => {
     <div className="card">
       <div>
         <div className="add-box">
-          <Title level={1} className="title">توصيات إضافية</Title>
+          <Title level={1} className="title">
+            توصيات إضافية
+          </Title>
           {useUserData().userData?.role === "teacher" ? <AddRecommended /> : ""}
         </div>
 

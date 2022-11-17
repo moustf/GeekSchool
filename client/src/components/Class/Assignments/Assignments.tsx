@@ -22,7 +22,9 @@ const Assignments: React.FC = () => {
 
   // ? The search function.
   const onSearch = (value: string) =>
-    setAssignmentsCopy(assignments.filter((assignment: any) => assignment.title.includes(value)));
+    setAssignmentsCopy(
+      assignments.filter((assignment: any) => assignment.title.includes(value))
+    );
 
   // ? Button events
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -80,14 +82,16 @@ const Assignments: React.FC = () => {
             onSearch={onSearch}
             enterButton
           />
-          {role === 'teacher' && <Dropdown overlay={menu} className="dropdown">
-            <Button className="dropdown-button">
-              <Space>
-                <PlusOutlined className="plus-icon" />
-                إضافة
-              </Space>
-            </Button>
-          </Dropdown>}
+          {role === "teacher" && (
+            <Dropdown overlay={menu} className="dropdown">
+              <Button className="dropdown-button">
+                <Space>
+                  <PlusOutlined className="plus-icon" />
+                  إضافة
+                </Space>
+              </Button>
+            </Dropdown>
+          )}
         </section>
         {role === "student" && (
           <section className="assignments-box">

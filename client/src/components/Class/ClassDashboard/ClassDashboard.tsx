@@ -33,16 +33,16 @@ const ClassDashboard: React.FC = () => {
   const { logout, userData } = useUserData();
   const { classId } = useParams();
 
-const icons = [
-  <DashboardOutlined />,
-  <FundProjectionScreenOutlined />,
-  <NotificationOutlined />,
-  <UserOutlined />,
-  <ReconciliationOutlined />,
-  <QuestionCircleOutlined />,
-  <DeliveredProcedureOutlined />,
-  <FileTextOutlined />,
-];
+  const icons = [
+    <DashboardOutlined />,
+    <FundProjectionScreenOutlined />,
+    <NotificationOutlined />,
+    <UserOutlined />,
+    <ReconciliationOutlined />,
+    <QuestionCircleOutlined />,
+    <DeliveredProcedureOutlined />,
+    <FileTextOutlined />,
+  ];
 
   const labels = [
     "الإحصائيات",
@@ -66,9 +66,11 @@ const icons = [
     `/class/${classId}/recommended`,
   ];
 
-  let filteredIcons: ReactElement[]; let filteredLabels: string[]; let filteredPaths: string[];
+  let filteredIcons: ReactElement[];
+  let filteredLabels: string[];
+  let filteredPaths: string[];
 
-  if (userData.role === 'teacher') {
+  if (userData.role === "teacher") {
     filteredIcons = [...icons];
     filteredLabels = [...labels];
     filteredPaths = [...paths];

@@ -25,7 +25,9 @@ const validateMessages = {
   },
 };
 
-const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({ setTest }) => {
+const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({
+  setTest,
+}) => {
   const [isShown, setIsShown] = useState<boolean>(true);
 
   const onFinish = async (fieldValues: any) => {
@@ -122,7 +124,7 @@ const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({ setTest }
                   fontSize: "large",
                   fontWeight: "bold",
                   boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.25)",
-                  marginTop: '1rem',
+                  marginTop: "1rem",
                 }}
               >
                 إضافة الإختبار

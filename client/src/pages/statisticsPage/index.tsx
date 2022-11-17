@@ -76,7 +76,8 @@ const StatisticsPage: any = () => {
       );
       setDashboardNumber({
         studentLength: statisticsData.data.data.studentsNum.studentsCount,
-        assignmentLength: statisticsData.data.data.assignmentsNum.assignmentsCount,
+        assignmentLength:
+          statisticsData.data.data.assignmentsNum.assignmentsCount,
         questionsLength: statisticsData.data.data.questionsNum.questionsCount,
       });
     } catch (err: any) {

@@ -49,24 +49,24 @@ const AddRecommended: React.FC = () => {
         onCancel={handleCancel}
         width="67%"
         bodyStyle={{
-          height: '70vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
+          height: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
         }}
         closeIcon={
           <CloseOutlined
             style={{
-              margin: '2rem',
+              margin: "2rem",
               color: "#0CBE8A",
               border: "2px solid #0CBE8A",
-              fontSize: '40px',
-              fontWeight: 'bold',
-              position: 'absolute',
-              right: '70rem',
-              top: '1rem',
+              fontSize: "40px",
+              fontWeight: "bold",
+              position: "absolute",
+              right: "70rem",
+              top: "1rem",
             }}
           />
         }
@@ -78,7 +78,7 @@ const AddRecommended: React.FC = () => {
             display: "flex",
             alignItems: "baseline",
             justifyContent: "center",
-            gap: '3rem',
+            gap: "3rem",
           }}
           className="form"
           onFinish={onFinish}

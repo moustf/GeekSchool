@@ -76,7 +76,10 @@ const Announcements: React.FC = () => {
           ) : (
             <AnnouncementCard
               description={object.description}
-                createdAt={[object.createdAt.split("T")[0], object.createdAt.split("T")[1]]}
+              createdAt={[
+                object.createdAt.split("T")[0],
+                object.createdAt.split("T")[1],
+              ]}
             />
           )
         )}

@@ -61,25 +61,25 @@ const AssignmentModal: React.FC = () => {
         onCancel={handleCancel}
         width="67%"
         bodyStyle={{
-          height: '80vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
+          height: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
         }}
         closeIcon={
           <CloseOutlined
             className="close-icon"
             style={{
-              margin: '2rem',
+              margin: "2rem",
               color: "#0CBE8A",
               border: "2px solid #0CBE8A",
-              fontSize: '40px',
-              fontWeight: 'bold',
-              position: 'absolute',
-              right: '70rem',
-              top: '1rem',
+              fontSize: "40px",
+              fontWeight: "bold",
+              position: "absolute",
+              right: "70rem",
+              top: "1rem",
             }}
           />
         }
@@ -92,7 +92,7 @@ const AssignmentModal: React.FC = () => {
         >
           <Form.Item
             label="عنوان المهمة"
-            style={{ width: "90%", height: '5rem' }}
+            style={{ width: "90%", height: "5rem" }}
             name="title"
             rules={[
               {
@@ -106,7 +106,7 @@ const AssignmentModal: React.FC = () => {
 
           <Form.Item
             label="تفاصيل المهمة"
-            style={{ width: "90%", height: '10rem' }}
+            style={{ width: "90%", height: "10rem" }}
             name="description"
             rules={[
               {

@@ -99,7 +99,14 @@ const App: React.FC = () => {
       children: [
         {
           index: true,
-          element: userData?.role === 'teacher' ? <StatisticsPage /> : userData?.role === 'student' ? <Announcements /> : <LoginPage />,
+          element:
+            userData?.role === "teacher" ? (
+              <StatisticsPage />
+            ) : userData?.role === "student" ? (
+              <Announcements />
+            ) : (
+              <LoginPage />
+            ),
         },
         {
           path: "stats",
