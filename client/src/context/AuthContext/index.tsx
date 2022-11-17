@@ -27,11 +27,7 @@ export const UserAuthContext = createContext<UserDataInterface | null>(null);
 export const useUserData = (): any => useContext(UserAuthContext);
 
 export const UserAuthProvider = (): UserDataInterface => {
-  const [userData, setUserData] = useState<any>({
-    id: 0,
-    role: "",
-    name: "",
-  });
+  const [userData, setUserData] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
 
   const login = async (
@@ -47,9 +43,9 @@ export const UserAuthProvider = (): UserDataInterface => {
       });
 
       setUserData({
-        id: res.data.data.id,
-        role: res.data.data.role,
-        name: res.data.data.name,
+        id: res.data.data[1].id || res.data.data[0].id,
+        role: res.data.data[0].role,
+        name: res.data.data[0].name,
       });
       setLoading(false);
       if (callback) callback(null);
@@ -86,7 +82,7 @@ export const UserAuthProvider = (): UserDataInterface => {
   const logout = async (callback: any = null): Promise<any> => {
     try {
       setLoading(true);
-      await axios.post("/api/v1/auth/logout");
+      const logoutData = await axios.post("/api/v1/auth/logout");
       setUserData({
         id: 0,
         role: "",
@@ -94,12 +90,11 @@ export const UserAuthProvider = (): UserDataInterface => {
       });
       setLoading(false);
       if (callback) callback(null);
+      return logoutData;
     } catch (err) {
       setLoading(false);
       return { error: err };
     }
-
-    return true;
   };
 
   const getUserData = async () => {

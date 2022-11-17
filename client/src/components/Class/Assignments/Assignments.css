@@ -13,10 +13,12 @@
 }
 
 .class-assignment .assignment-add-search {
-  width: 98.5%;
+  width: 100%;
   height: 5rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: none;
 }
 
 .class-assignment .assignment-add-search .search {
@@ -47,4 +49,10 @@
 
 .class-assignment .ant-dropdown-menu-item {
   height: 10rem !important;
+}
+
+.assignments-box {
+  width: 100%;
+  height: 40rem;
+  box-shadow: none !important;
 }

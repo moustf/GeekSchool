@@ -14,9 +14,10 @@ const LoginPage: React.FC = () => {
     if (!loading) {
       const { role, id } = userData;
       if (role === "parent") navigate("/parent");
-      else if (role === "teacher") navigate("/teacher");
+      else if (role === "teacher") navigate(`/teacher/${id}`);
       else if (role === "student") navigate(`/student/${id}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   const onFinish = async (fieldValues: any) => {
@@ -28,8 +29,13 @@ const LoginPage: React.FC = () => {
 
       if (loggedIn) setLoading(false);
 
-      if (!loggedIn?.error) {
-        message.error(loggedIn?.error.response?.data?.msg);
+      if (loggedIn?.error && loggedIn.error.response.status === 403) {
+        message.error(loggedIn.error.response.data.msg);
+        setLoading(true);
+      }
+
+      if (!loggedIn) {
+        message.error("Log in failed!");
       }
     } catch (err: any) {
       if (err.response?.data?.msg) {

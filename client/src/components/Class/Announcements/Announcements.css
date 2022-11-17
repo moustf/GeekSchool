@@ -17,7 +17,7 @@
 .class-announcement .title {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .class-announcement .inner-cont {
@@ -45,6 +45,7 @@
 
 .class-announcement .inner-cont .test-box-inner {
   width: 90%;
+  box-shadow: none;
 }
 
 .class-announcement .inner-cont .test-box-inner .test-title {

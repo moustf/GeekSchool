@@ -1,14 +1,18 @@
 import { Button, Modal, Form, Input } from "antd";
-import React, { useState } from "react";
+import { useState, FC, Dispatch, SetStateAction } from "react";
 import { CloseOutlined, FileTextOutlined } from "@ant-design/icons";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./index.css";
 import Swal from "sweetalert2";
+import "./index.css";
 
-const AssignmentModal: React.FC = () => {
+const AssignmentModal: FC<{
+  setRefresh: Dispatch<SetStateAction<boolean>>;
+}> = ({ setRefresh }) => {
   const [form] = Form.useForm();
   const source = axios.CancelToken.source();
   const [visible, setVisible] = useState<boolean>(false);
+  const { classId } = useParams();
 
   const showModal = () => setVisible(true);
 
@@ -19,10 +23,12 @@ const AssignmentModal: React.FC = () => {
   const onFinish = async (fieldValues: any) => {
     try {
       await axios.post(
-        "/api/v1/class/25/assignment",
+        `/api/v1/class/${classId}/assignment`,
         { ...fieldValues },
         { cancelToken: source.token }
       );
+
+      setRefresh((prevValue) => !prevValue);
 
       await Swal.fire({
         title: "تم إضافة المهمة بنجاح",
@@ -59,10 +65,28 @@ const AssignmentModal: React.FC = () => {
         footer={null}
         open={visible}
         onCancel={handleCancel}
-        width="60%"
+        width="67%"
+        bodyStyle={{
+          height: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
         closeIcon={
           <CloseOutlined
-            style={{ color: "#0CBE8A", border: "2px solid #0CBE8A" }}
+            className="close-icon"
+            style={{
+              margin: "2rem",
+              color: "#0CBE8A",
+              border: "2px solid #0CBE8A",
+              fontSize: "40px",
+              fontWeight: "bold",
+              position: "absolute",
+              right: "70rem",
+              top: "1rem",
+            }}
           />
         }
       >
@@ -74,7 +98,7 @@ const AssignmentModal: React.FC = () => {
         >
           <Form.Item
             label="عنوان المهمة"
-            style={{ width: "70%" }}
+            style={{ width: "90%", height: "5rem" }}
             name="title"
             rules={[
               {
@@ -83,12 +107,12 @@ const AssignmentModal: React.FC = () => {
               },
             ]}
           >
-            <Input className="input" placeholder="عنوان المهمة" style={{}} />
+            <Input className="input" placeholder="عنوان المهمة" />
           </Form.Item>
 
           <Form.Item
             label="تفاصيل المهمة"
-            style={{ width: "70%" }}
+            style={{ width: "90%", height: "10rem" }}
             name="description"
             rules={[
               {
@@ -98,6 +122,7 @@ const AssignmentModal: React.FC = () => {
             ]}
           >
             <Input.TextArea
+              className="textarea"
               style={{ borderRadius: "8px", height: "100px" }}
               placeholder="تفاصيل المهمة"
             />

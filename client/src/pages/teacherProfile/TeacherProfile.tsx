@@ -1,30 +1,32 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/aria-role */
-import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useEffect, useState, FC } from "react";
 import { message } from "antd";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
 import avtar from "../../assets/class_avatar.png";
-import "./style.css";
 import { useUserData } from "../../context/AuthContext";
+import "./style.css";
 
 interface UserItem {
-  id: number;
   email: string;
-  name: string;
   img: string;
-  location: string;
+  name: string;
+  student_id: number;
+  teacher_id: number;
   mobile: string;
+  location: string;
 }
 
 const initUser: UserItem = {
-  id: 1,
+  student_id: 0,
+  teacher_id: 0,
   email: "",
   name: "",
   img: "",
-  location: "",
   mobile: "",
+  location: "Gaza",
 };
 
 interface classItem {
@@ -33,25 +35,25 @@ interface classItem {
   id: number | string;
 }
 
-interface ProfileProps {
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
-}
-
-const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
-  const source = axios.CancelToken.source();
+const TeacherProfile: FC = () => {
+  const controller = new AbortController();
   const [students, setStudents] = useState<UserItem[]>([]);
   const [classes, setClasses] = useState<classItem[]>([]);
   const [user, setUser] = useState<UserItem>(initUser);
+  const [, setError] = useState<{ students: string; classes: string }>({
+    students: "",
+    classes: "",
+  });
   const { userData } = useUserData();
 
   useEffect(() => {
-    const fetchteacherInfo = async () => {
+    const fetchTeacherInfo = async () => {
       try {
         const data = await axios.get("/api/v1/teacher/info", {
-          cancelToken: source.token,
+          signal: controller.signal,
         });
 
-        setUser(data.data.data[0]);
+        setUser(data.data.data[0].User);
       } catch (error: any) {
         message.error(error.response.data.msg);
       }
@@ -60,11 +62,14 @@ const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
     const fetchStudents = async () => {
       try {
         const data = await axios.get("/api/v1/teacher/students", {
-          cancelToken: source.token,
+          signal: controller.signal,
         });
         setStudents(data.data.data);
       } catch (error: any) {
-        message.error(error.response.data.msg);
+        setError((prevValue) => ({
+          ...prevValue,
+          students: error.response.data.msg,
+        }));
       }
     };
 
@@ -73,25 +78,28 @@ const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
         const data = await axios.get(
           `/api/v1/profile/teacher/${userData.id}/classes`,
           {
-            cancelToken: source.token,
+            signal: controller.signal,
           }
         );
         setClasses(data.data.data);
       } catch (error: any) {
-        message.error(error.response.data.msg);
+        setError((prevValue) => ({
+          ...prevValue,
+          classes: error.response.data.msg,
+        }));
       }
     };
 
     fetchStudents();
     fetchClasses();
-    fetchteacherInfo();
+    fetchTeacherInfo();
+
+    return () => controller.abort();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return userData?.role !== "teacher" ? (
-    <Navigate to="/login" />
-  ) : (
+  return (
     <ProfilePage
       name={user?.name}
       location={user?.location}
@@ -100,14 +108,14 @@ const TeacherProfile: React.FC<ProfileProps> = ({ setIsGotten }) => {
       role="teacher"
       image={user?.img}
       visitRole={userData?.role}
-      setIsGotten={setIsGotten}
     >
       <section id="teacher-tables">
         <ProfileCard
           data={students.map((student: UserItem) => ({
             img: student.img,
             name: student.name,
-            id: student.id,
+            id: student.student_id,
+            mobile: "0123456789",
           }))}
           title="الطلاب"
           type="students"

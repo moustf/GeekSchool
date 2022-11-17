@@ -3,6 +3,7 @@ import FeedbackCard from "./FeedbackCard";
 import QuestionsCard from "./QuestionsCard";
 import HealthCard from "./healthProfile/HealthCard";
 import TeacherSchedule from "./TeacherSchedule";
+import Announcements from "./Class/Announcements/Announcements";
 import {
   TimeLineSection,
   LandingHeader,
@@ -26,4 +27,5 @@ export {
   LandingFeedback,
   Footer,
   StatisticLanding,
+  Announcements,
 };

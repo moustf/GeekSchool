@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { Key, ReactNode } from "react";
+import { Key, ReactNode, Dispatch, SetStateAction } from "react";
 
 interface questionInterface {
   id: string | number;
@@ -19,7 +19,7 @@ interface feedbackInterface {
 
 interface announcementCard {
   description: string;
-  createdAt: string;
+  createdAt: string[];
 }
 
 interface profileNavLinkInterface {
@@ -75,6 +75,7 @@ interface TeacherAssignmentCardProps {
   title: string;
   createdAt: string;
   description: string;
+  setRefresh: Dispatch<SetStateAction<boolean>>;
 }
 
 interface ClassCardProps {
@@ -120,7 +121,7 @@ interface ParentInfoInterface {
 
 interface ChildrenData {
   parent_id: number;
-  user_id: number;
+  id: number;
   img: string;
   name: string;
 }
@@ -133,6 +134,12 @@ interface TeachersData {
   mobile: string;
   name: string;
   role: string;
+}
+
+interface dashboardNumberInterface {
+  studentLength: number | string;
+  assignmentLength: number | string;
+  questionsLength: number | string;
 }
 
 export {
@@ -152,4 +159,5 @@ export {
   ParentInfoInterface,
   ChildrenData,
   TeachersData,
+  dashboardNumberInterface,
 };

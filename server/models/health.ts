@@ -9,24 +9,31 @@ const Health = sequelize.define('Health', {
   },
   dental: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   vision: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   blood_pressure: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   cancer: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   diabetes: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   chronic: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
   other: {
     type: DataTypes.TEXT,
+    defaultValue: 'لا يوجد',
   },
 });
 

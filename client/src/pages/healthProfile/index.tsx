@@ -116,7 +116,7 @@ const HealthProfilePage = () => {
   }, []);
 
   return (
-    <main>
+    <main className="health-main">
       <section id="health-container">
         {types.map((type, i) => {
           const key = healthData[type];

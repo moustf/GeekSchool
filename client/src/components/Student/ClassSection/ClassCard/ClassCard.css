@@ -1,10 +1,19 @@
-.first-part .class-name {
-  width: 50%;
+.first-part .titles {
+  width: 40%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  box-shadow: none;
+}
+
+.first-part .titles .class-name {
+  width: 100%;
   color: var(--white);
   margin: 0rem;
 }
 
-.first-part .teacher-name {
+.first-part .titles .teacher-name {
   color: var(--white);
   margin: 0rem;
 }
@@ -18,4 +27,20 @@
 
 .marked {
   font-size: 0.5rem;
+}
+
+.assignment-row .assignment-title {
+  width: 10rem !important;
+  font-size: 0.7rem !important;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.test-row .test-title {
+  width: 10rem !important;
+  font-size: 0.7rem !important;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input, Button, message } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import AddChild from "./AddChild";
 import { userDataParentInterface } from "../../interfaces";
@@ -40,7 +40,6 @@ const ParentSignUp: React.ElementType = ({
       }
     } catch (error: any) {
       if (error.response.status === 404) {
-        message.error("The student email you entered does not exist!");
         setIsChildEmailValid(false);
         setIsOk(false);
       }
@@ -82,6 +81,8 @@ const ParentSignUp: React.ElementType = ({
           placeholder="البريد الإلكتروني للأبناء"
           onChange={handleEmailChange}
           style={{ height: "100%", width: "89%" }}
+          status={!isChildEmailValid ? "error" : ""}
+          prefix={!isChildEmailValid ? <ClockCircleOutlined /> : ""}
         />
         <Button
           type="primary"

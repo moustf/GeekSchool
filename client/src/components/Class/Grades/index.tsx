@@ -84,7 +84,7 @@ const Grades = () => {
   }
 
   return (
-    <>
+    <div className="grades-box">
       <h1 className="title">الدرجات</h1>
       <div className="table_wrapper">
         <Table
@@ -94,7 +94,7 @@ const Grades = () => {
           pagination={{ pageSize: 4 }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

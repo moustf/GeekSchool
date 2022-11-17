@@ -11,6 +11,7 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
   title,
   createdAt,
   description,
+  setRefresh,
 }) => {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
@@ -61,9 +62,14 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
     setOpenSecond(false);
   };
 
+  const handleDeletion = () => {
+    axios.delete(`/api/v1/class/assignment/${id}`);
+    setRefresh((prevValue) => !prevValue);
+  };
+
   return (
     <div>
-      <Card style={{ margin: "5px" }}>
+      <Card className="teacher-assignment-card">
         <div className="card-title">
           <div className="title-content">
             <div className="icon-title">
@@ -75,8 +81,14 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
           </div>
 
           <div className="title-side">
-            <p style={{ color: "#7C7C7C" }}>Posted: {createdAt}</p>
-            <DeleteFilled style={{ color: "red" }} />
+            <p style={{ color: "#7C7C7C" }}>
+              نشرت في: {createdAt.split("T")[0]}, الساعة:{" "}
+              {createdAt.split("T")[1].slice(0, 8)}
+            </p>
+            <DeleteFilled
+              onClick={handleDeletion}
+              style={{ color: "red", fontSize: "1.3rem" }}
+            />
           </div>
         </div>
 
@@ -99,7 +111,11 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               >
                 {submittedAssignment.length !== 0 ? (
                   submittedAssignment.map((assignment: any) => (
-                    <div className="student-box" id={assignment.student_id}>
+                    <div
+                      className="student-box"
+                      id={assignment.student_id}
+                      key={assignment.student_id}
+                    >
                       <img alt="student" src={assignment.img} />
                       <h4 className="name">
                         {assignment["Student.User.name"]}
@@ -124,7 +140,11 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               >
                 {notSubmittedAssignment.length !== 0 ? (
                   notSubmittedAssignment.map((assignment: any) => (
-                    <div className="student-box" id={assignment.student_id}>
+                    <div
+                      className="student-box"
+                      id={assignment.student_id}
+                      key={assignment.student_id}
+                    >
                       <h4 className="name">
                         {assignment["Student.User.name"]}
                       </h4>

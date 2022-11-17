@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Pagination } from "antd";
+import { Pagination, Typography } from "antd";
 import type { PaginationProps } from "antd";
 import { useParams } from "react-router-dom";
 import { RecommendedCard } from "../../components";
 import AddRecommended from "../../components/AddRecommended";
 import { useUserData } from "../../context/AuthContext";
+import "./style.css";
+
+const { Title } = Typography;
 
 type recommendedType = {
   description: string;
@@ -17,6 +20,7 @@ const RecommendedPage: React.FC = () => {
   const [current, setCurrent] = useState<number>(1);
   const [count, setCount] = useState<number>(1);
   const [recommended, setRecommended] = useState<Array<recommendedType>>([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const source = axios.CancelToken.source();
 
   const { classId } = useParams();
@@ -31,7 +35,7 @@ const RecommendedPage: React.FC = () => {
     fetchRecommended();
     return () => source.cancel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current]);
+  }, [current, refresh]);
 
   const onChange: PaginationProps["onChange"] = (page) => {
     setCurrent(page);
@@ -40,13 +44,20 @@ const RecommendedPage: React.FC = () => {
   return (
     <div className="card">
       <div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h2>توصيات إضافية</h2>
-          {useUserData().userData?.role === "teacher" ? <AddRecommended /> : ""}
+        <div className="add-box">
+          <Title level={1} className="title">
+            توصيات إضافية
+          </Title>
+          {useUserData().userData?.role === "teacher" ? (
+            <AddRecommended setRefresh={setRefresh} />
+          ) : (
+            ""
+          )}
         </div>
 
         {recommended.map((ele) => (
           <RecommendedCard
+            key={ele.description}
             description={ele.description}
             materialLink={ele.material_link}
           />

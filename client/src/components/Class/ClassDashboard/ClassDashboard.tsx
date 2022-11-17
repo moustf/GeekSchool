@@ -8,37 +8,24 @@ import {
   MenuOutlined,
   FundProjectionScreenOutlined,
   LogoutOutlined,
+  NotificationOutlined,
 } from "@ant-design/icons";
 import { message } from "antd";
-import React, { useState } from "react";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import React, { ReactElement, useState } from "react";
+import {
+  Outlet,
+  useNavigate,
+  useParams,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import AsideLink from "../../AsideLink";
 import Logo from "../../../assets/new-logo.png";
-import "./style.css";
 import { useUserData } from "../../../context/AuthContext/index";
-
-const icons = [
-  <DashboardOutlined />,
-  <UserOutlined />,
-  <ReconciliationOutlined />,
-  <QuestionCircleOutlined />,
-  <DeliveredProcedureOutlined />,
-  <FileTextOutlined />,
-  <FundProjectionScreenOutlined />,
-];
-
-const labels = [
-  "الإحصائيات",
-  "الطلاب",
-  "المهمات",
-  "الإسئلة",
-  "التقييم",
-  "التوصيات",
-  "الدرجات",
-];
+import "./style.css";
 
 const ClassDashboard: React.FC = () => {
-  const { pathname } = window.location;
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState<string>("close");
   const [newPath, setNewPath] = useState<string | null>(pathname);
@@ -46,15 +33,52 @@ const ClassDashboard: React.FC = () => {
   const { logout, userData } = useUserData();
   const { classId } = useParams();
 
+  const icons = [
+    <DashboardOutlined />,
+    <FundProjectionScreenOutlined />,
+    <NotificationOutlined />,
+    <UserOutlined />,
+    <ReconciliationOutlined />,
+    <QuestionCircleOutlined />,
+    <DeliveredProcedureOutlined />,
+    <FileTextOutlined />,
+  ];
+
+  const labels = [
+    "الإحصائيات",
+    "الدرجات",
+    "الاعلانات",
+    "الطلاب",
+    "المهمات",
+    "الإسئلة",
+    "التقييم",
+    "التوصيات",
+  ];
+
   const paths = [
     `/class/${classId}/stats`,
+    `/class/${classId}/grades`,
+    `/class/${classId}/announcements`,
     `/class/${classId}/students`,
     `/class/${classId}/assignments`,
     `/class/${classId}/questions`,
     `/class/${classId}/feedback`,
     `/class/${classId}/recommended`,
-    `/class/${classId}/grades`,
   ];
+
+  let filteredIcons: ReactElement[];
+  let filteredLabels: string[];
+  let filteredPaths: string[];
+
+  if (userData.role === "teacher") {
+    filteredIcons = [...icons];
+    filteredLabels = [...labels];
+    filteredPaths = [...paths];
+  } else {
+    filteredIcons = icons.slice(2);
+    filteredLabels = labels.slice(2);
+    filteredPaths = paths.slice(2);
+  }
 
   const openAside = () => {
     if (open === "close") setOpen("open");
@@ -65,14 +89,12 @@ const ClassDashboard: React.FC = () => {
     setNewPath(path);
   };
 
-  const logOut = async () => {
+  const handleLogout = async () => {
     try {
-      const { error } = await logout();
-      if (!userData) {
-        navigate("/");
-      } else {
-        message.error(error);
-      }
+      const logoutData = await logout();
+
+      message.success(logoutData.data.msg);
+      navigate("/");
     } catch (error: any) {
       message.error(error.response.data.msg);
     }
@@ -83,7 +105,12 @@ const ClassDashboard: React.FC = () => {
       <header>
         <div>
           <MenuOutlined onClick={openAside} />
-          <img src={Logo} alt="geek school logo" />
+          <Link to="/">
+            <img src={Logo} alt="geek school logo" />
+          </Link>
+          <div className="logout-cont">
+            <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
+          </div>
         </div>
         <div>
           <img
@@ -94,22 +121,20 @@ const ClassDashboard: React.FC = () => {
       </header>
       <main id="main-layout">
         <aside>
-          {paths.map((path, i) => (
+          {filteredPaths.map((path, i) => (
             <AsideLink
-              icon={icons[i]}
-              text={open === "open" ? labels[i] : ""}
+              icon={filteredIcons[i]}
+              text={open === "open" ? filteredLabels[i] : ""}
               path={path}
               handleClicked={handleClicked}
               activeColor={activeColor}
               newPath={newPath}
-              key={Math.random() * 2}
+              role={userData.role}
+              key={Math.random() * 532}
             />
           ))}
-          <Link to="/">
-            <LogoutOutlined onClick={logOut} />
-          </Link>
         </aside>
-        <main>
+        <main className="outlet-layout">
           <Outlet />
         </main>
       </main>

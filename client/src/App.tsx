@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import Question from "./components/Class/Questions";
@@ -10,16 +10,17 @@ import {
   TeacherProfile,
   HealthProfilePage,
   LandingPage,
+  StatisticsPage,
 } from "./pages";
 import Assignments from "./components/Class/Assignments/Assignments";
 import { useUserData } from "./context/AuthContext";
-import StatsDummy from "./components/StatsDummy/Dummy";
 import StudentsProfile from "./components/Class/StudentsPage";
 import Class from "./components/Class";
 import Grades from "./components/Class/Grades";
 import StudentGrades from "./components/Student/Grades/StudentGrades";
 import ClassSection from "./components/Student/ClassSection/ClassSection";
 import Calender from "./components/Calender";
+import { Announcements } from "./components";
 import "antd/dist/antd.variable.min.css";
 import "./style.css";
 import StudentProfile from "./pages/studentProfile";
@@ -33,18 +34,16 @@ ConfigProvider.config({
 });
 
 const App: React.FC = () => {
-  const [isGotten, setIsGotten] = useState<boolean>(false);
-  const { getUserData } = useUserData();
+  const { getUserData, userData } = useUserData();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getUserData();
-
-      if (data) setIsGotten(true);
+      await getUserData();
     };
 
     getData();
-  }, [isGotten]);
+  }, []);
 
   const router = createBrowserRouter([
     {
@@ -61,8 +60,12 @@ const App: React.FC = () => {
     },
     {
       path: "/student/:studentId",
-      element: <StudentProfile setIsGotten={setIsGotten} />,
+      element: userData ? <StudentProfile /> : <LoginPage />,
       children: [
+        {
+          index: true,
+          element: userData ? <HealthProfilePage /> : <LoginPage />,
+        },
         {
           path: "classes",
           element: <ClassSection />,
@@ -83,19 +86,35 @@ const App: React.FC = () => {
     },
     {
       path: "/parent",
-      element: <ParentProfile setIsGotten={setIsGotten} />,
+      element: userData?.role === "parent" ? <ParentProfile /> : <LoginPage />,
     },
     {
-      path: "/teacher",
-      element: <TeacherProfile setIsGotten={setIsGotten} />,
+      path: "/teacher/:teacherId",
+      element:
+        userData?.role === "teacher" ? <TeacherProfile /> : <LoginPage />,
     },
     {
       path: "/class/:classId",
-      element: <Class />,
+      element: userData ? <Class /> : <LoginPage />,
       children: [
         {
+          index: true,
+          element:
+            userData?.role === "teacher" ? (
+              <StatisticsPage />
+            ) : userData?.role === "student" ? (
+              <Announcements />
+            ) : (
+              <LoginPage />
+            ),
+        },
+        {
           path: "stats",
-          element: <StatsDummy />,
+          element: <StatisticsPage />,
+        },
+        {
+          path: "announcements",
+          element: <Announcements />,
         },
         {
           path: "students",

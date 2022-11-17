@@ -1,6 +1,5 @@
-import React from "react";
+import { FC } from "react";
 import ClassDashboard from "./ClassDashboard/ClassDashboard";
 
-const Class: React.FC = () => <ClassDashboard />;
-
+const Class: FC = () => <ClassDashboard />;
 export default Class;

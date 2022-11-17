@@ -20,6 +20,10 @@
   height: 90px;
 }
 
+.announcement-card .inner-box {
+  width: 90%;
+}
+
 .announcement-card div p:nth-child(1){
   color: #919191;
 }

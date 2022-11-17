@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   TimeLineSection,
   LandingHeader,
@@ -6,13 +7,12 @@ import {
   StatisticLanding,
 } from "../../components";
 
-const LandingPage = () => (
+const LandingPage: FC = () => (
   <>
     <LandingHeader />
     <TimeLineSection />
     <LandingFeedback />
     <StatisticLanding />
-
     <Footer />
   </>
 );

@@ -47,7 +47,10 @@ const Calender: React.FC = () => {
     const listData = getListData(value);
 
     return (
-      <ul className="events">
+      <ul
+        className="events"
+        style={{ height: "10rem !important", overflow: "auto" }}
+      >
         {listData.map((item: any) => (
           <li key={item.content}>
             <Badge

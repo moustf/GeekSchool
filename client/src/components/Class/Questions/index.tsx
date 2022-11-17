@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import { FC, useEffect, useState } from "react";
-import type { PaginationProps } from "antd";
+import { message, PaginationProps, Pagination } from "antd";
 import axios from "axios";
-import { Pagination } from "antd";
 import { useParams } from "react-router-dom";
 import Question from "./Question";
 import AnsweredQuestion from "./AnsweredQuestion";
@@ -30,7 +29,7 @@ const Questions: FC<Props> = () => {
       setCount(data.count);
       setQuestions(data.data);
     } catch (error) {
-      console.log(error);
+      message.error(`${error}`);
     }
   };
 
@@ -60,7 +59,7 @@ const Questions: FC<Props> = () => {
   return (
     <div className="card">
       <div>
-        <h1 className="title">الإسئلة</h1>
+        <h1 className="title">الأسئلة</h1>
         {questions.map((q) =>
           q.answer ? (
             <AnsweredQuestion

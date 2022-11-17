@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import "./style.css";
+import { useState, FC, Dispatch, SetStateAction } from "react";
 import { Form, Button, message, Input, Modal } from "antd";
 import axios from "axios";
 import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
+import "./style.css";
 
-const AddRecommended: React.FC = () => {
+const AddRecommended: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({
+  setRefresh,
+}) => {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState<boolean>(false);
   const source = axios.CancelToken.source();
@@ -19,13 +21,14 @@ const AddRecommended: React.FC = () => {
 
   const onFinish = async (fieldValues: any) => {
     try {
-      const newRecommneded = await axios.post(
+      const newRecommended = await axios.post(
         `/api/v1/class/${classId}/recommended`,
         { ...fieldValues },
         { cancelToken: source.token }
       );
 
-      message.success(newRecommneded.data.msg);
+      message.success(newRecommended.data.msg);
+      setRefresh((prevValue) => !prevValue);
     } catch (error: any) {
       message.error(error.response.data.msg);
     }
@@ -47,10 +50,27 @@ const AddRecommended: React.FC = () => {
         footer={null}
         open={visible}
         onCancel={handleCancel}
-        width="60%"
+        width="67%"
+        bodyStyle={{
+          height: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
         closeIcon={
           <CloseOutlined
-            style={{ color: "#0CBE8A", border: "2px solid #0CBE8A" }}
+            style={{
+              margin: "2rem",
+              color: "#0CBE8A",
+              border: "2px solid #0CBE8A",
+              fontSize: "40px",
+              fontWeight: "bold",
+              position: "absolute",
+              right: "70rem",
+              top: "1rem",
+            }}
           />
         }
       >
@@ -61,6 +81,7 @@ const AddRecommended: React.FC = () => {
             display: "flex",
             alignItems: "baseline",
             justifyContent: "center",
+            gap: "3rem",
           }}
           className="form"
           onFinish={onFinish}

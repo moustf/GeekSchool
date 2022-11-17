@@ -8,7 +8,7 @@ const getTeacherStudents = async (req: any, res: Response, next: NextFunction) =
     const teacherStudents = await getTeacherStudentsQuery(Number(id) || 0);
 
     if (teacherStudents.length === 0) {
-      throw new CustomError(404, 'The teacher you are searching for does not exist');
+      throw new CustomError(404, 'لا يوجد لدى المدرس أي تلاميذ لعرضهم!');
     }
 
     res.json({ msg: 'The data is returned successfully', data: teacherStudents });

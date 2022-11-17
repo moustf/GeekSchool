@@ -1,5 +1,4 @@
-import { FC, useState, useEffect, Dispatch, SetStateAction } from "react";
-// import { Navigate } from "react-router-dom";
+import { FC, useState, useEffect } from "react";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
@@ -9,10 +8,9 @@ import {
   ChildrenData,
   TeachersData,
 } from "../../interfaces";
+import "./ParentProfile.css";
 
-const ParentProfile: FC<{
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
-}> = ({ setIsGotten }) => {
+const ParentProfile: FC = () => {
   const [parentInfo, setParentInfo] = useState<ParentInfoInterface>({
     email: "",
     img: "",
@@ -25,12 +23,11 @@ const ParentProfile: FC<{
     {
       parent_id: 1,
       name: "",
-      user_id: 1,
+      id: 1,
       img: "",
     },
   ]);
   const { userData } = useUserData();
-
   const [teachers, setTeachers] = useState<TeachersData[]>([
     {
       id: 1,
@@ -76,9 +73,7 @@ const ParentProfile: FC<{
     return () => controller.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // if (userData?.role !== "parent") {
-  //   return <Navigate to="/login" />;
-  // }
+
   return (
     <ProfilePage
       name={parentInfo.name}
@@ -88,30 +83,31 @@ const ParentProfile: FC<{
       location={parentInfo.location}
       mobile={parentInfo.mobile}
       visitRole={userData?.role}
-      setIsGotten={setIsGotten}
     >
-      <ProfileCard
-        data={children.map((child: ChildrenData) => ({
-          id: child.user_id,
-          img: child.img,
-          name: child.name,
-          mobile: parentInfo.mobile,
-        }))}
-        title="students"
-        type="students"
-        _role="parent"
-      />
-      <ProfileCard
-        data={teachers.map((teacher: TeachersData) => ({
-          id: teacher.id,
-          img: teacher.img,
-          name: teacher.name,
-          mobile: parentInfo.mobile,
-        }))}
-        title="teacher"
-        type="teacher"
-        _role="parent"
-      />
+      <main className="profile-cards">
+        <ProfileCard
+          data={children.map((child: ChildrenData) => ({
+            id: child.id,
+            img: child.img,
+            name: child.name,
+            mobile: parentInfo.mobile,
+          }))}
+          title="students"
+          type="students"
+          _role="parent"
+        />
+        <ProfileCard
+          data={teachers.map((teacher: TeachersData) => ({
+            id: teacher.id,
+            img: teacher.img,
+            name: teacher.name,
+            mobile: parentInfo.mobile,
+          }))}
+          title="teacher"
+          type="teachers"
+          _role="parent"
+        />
+      </main>
     </ProfilePage>
   );
 };

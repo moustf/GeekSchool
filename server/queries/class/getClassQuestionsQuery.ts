@@ -7,8 +7,8 @@ const getClassQuestionsQuery = (classId: string, page: string) => Question.findA
     where: {
       class_id: classId,
     },
-    offset: ((+page - 1) * 2),
-    limit: 2,
+    offset: ((+page - 1) * 6),
+    limit: 6,
   },
 );
 

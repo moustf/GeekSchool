@@ -6,7 +6,6 @@ import { userAuth, teacherAuth } from '../middlewares';
 const teacherRouter = Router();
 
 teacherRouter.get('/schedule', userAuth, teacherAuth, getTeacherSchedule);
-
 teacherRouter.get('/students', userAuth, teacherAuth, getTeacherStudents);
 teacherRouter.get('/info', userAuth, teacherAuth, teacherInfo);
 

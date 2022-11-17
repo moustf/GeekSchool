@@ -39,11 +39,12 @@ const Reports = ({
       if (!reportInput) {
         throw new Error("Reports field required");
       }
-      await axios.post(`/api/v1/students/${studentId}/reports`, {
+      await axios.post(`/api/v1/student/${studentId}/reports`, {
         description: reportInput,
       });
     } catch (error: any) {
-      message.error(error);
+      message.error(`You can't access the reports!
+      ${error}`);
     }
   };
 

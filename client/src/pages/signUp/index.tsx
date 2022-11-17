@@ -21,7 +21,6 @@ const init = {
 
 const SignUpPage: FC = () => {
   const { signup, userData } = useUserData();
-
   const [role, setRole] = useState<string>("teacher");
   const [signUpData, setSignUpData] = useState<signUpDataInterface>(init);
   const [isOkToSend, setIsOkToSend] = useState<boolean>(true);
@@ -40,17 +39,15 @@ const SignUpPage: FC = () => {
       if (data.role !== "student")
         await parentTeacherUserSchema.validate({ mobile, location });
 
-      const { error } = await signup(data);
+      const signupData = await signup(data);
 
-      if (!error) {
-        const { role: roleCheck } = userData;
-
-        if (roleCheck === "parent") navigate("/parent");
-        else if (roleCheck === "teacher") navigate("/teacher");
-        else if (roleCheck === "student")
+      if (signupData) {
+        if (role === "parent") navigate("/parent");
+        else if (role === "teacher") navigate(`/teacher/${userData.id}`);
+        else if (role === "student")
           message.success("The user is crated successfully!");
       } else {
-        message.error(error.response?.data?.msg);
+        message.error("The account has not been created!");
       }
     } catch (err: any) {
       if (err.name === "ValidationError") message.error(err.message);

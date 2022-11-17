@@ -33,7 +33,13 @@ const UserHeader = ({
     <div className="info-header">
       <div className="profile-details">
         <h1>{name}</h1>
-        <p>{role}</p>
+        <p>
+          {role === "student"
+            ? "تلميذ"
+            : role === "teacher"
+            ? "معلّم"
+            : "ولي أمر"}
+        </p>
       </div>
       <div className="location-container">
         <h2>عنوان</h2>

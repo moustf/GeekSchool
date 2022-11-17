@@ -77,14 +77,16 @@ const TimeLineSection: FC = () => {
     <section id="timeline-section">
       <div className="timeline-text">
         <h1>{role}</h1>
-        {data.map((e: any) => (
-          <Timeline.Item className="list-items-l">{e}</Timeline.Item>
+        {data.map((e: any, i: number) => (
+          <Timeline.Item key={e[i]} className="list-items-l">
+            {e}
+          </Timeline.Item>
         ))}
         <Timeline.Item className="list-items">
           في صفحة الفصل الدراسي، يمكنك القيام بالتالي:
           <ul className="step-list">
-            {dataStep.map((e: string) => (
-              <li>{e}</li>
+            {dataStep.map((e: string, i: number) => (
+              <li key={e[i]}>{e}</li>
             ))}
           </ul>
         </Timeline.Item>

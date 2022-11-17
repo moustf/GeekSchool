@@ -1,6 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button, Image, Typography } from "antd";
+import { FC } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button, Image, Typography, message } from "antd";
+import { LogoutOutlined } from "@ant-design/icons";
 import Logo from "../../../assets/new-logo.png";
 import BcgImage from "../../../assets/landing-bcg.png";
 import LandingImage from "../../../assets/landing-image.png";
@@ -9,14 +10,27 @@ import "./LandingHeader.css";
 
 const { Title, Text } = Typography;
 
-const LandingHeader: React.FC = () => {
-  const userId = useUserData().userData?.id;
+const LandingHeader: FC = () => {
+  const id = useUserData()?.userData?.id;
   const userRole = useUserData().userData?.role;
+  const { logout } = useUserData();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const logoutData = await logout();
+
+      message.success(logoutData.data.msg);
+      navigate("/");
+    } catch (error: any) {
+      message.error(error.response.data.msg);
+    }
+  };
 
   return (
     <main className="landing-section">
       <header className="landing-header">
-        {!userId && (
+        {!id && (
           <section className="buttons">
             <Link to="/login">
               <Button type="primary">تسجيل دخول</Button>
@@ -27,18 +41,23 @@ const LandingHeader: React.FC = () => {
           </section>
         )}
         {userRole && (
-          <Link
-            to={
-              userRole === "parent"
-                ? "/parent"
-                : userRole === "student"
-                ? `/student/${userId}`
-                : "/teacher"
-            }
-            className="user-profile"
-          >
-            <Button type="primary">حسابي</Button>
-          </Link>
+          <section className="logged-in-section">
+            <Link
+              to={
+                userRole === "parent"
+                  ? "/parent"
+                  : userRole === "student"
+                  ? `/student/${id}`
+                  : `/teacher/${id}`
+              }
+              className="user-profile"
+            >
+              <Button type="primary">حسابي</Button>
+            </Link>
+            <div className="logout-cont">
+              <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
+            </div>
+          </section>
         )}
 
         <section className="navigation">

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Table, Space, Spin, notification } from "antd";
 import axios from "axios";
+import { Table, Space, Spin, notification } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUserData } from "../../../context/AuthContext";
 import NameCell from "./NameCell";
 import Action from "./Action";
 import "./style.css";
@@ -37,6 +38,7 @@ const StudentsProfile = () => {
   const [students, setStudents] = useState<StudentInterface[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { userData } = useUserData();
   const navigate = useNavigate();
   const { classId } = useParams();
 
@@ -52,7 +54,7 @@ const StudentsProfile = () => {
         data.map((s: any) => ({
           id: s.student_id,
           name: s.name,
-          mobile: s.mobile,
+          mobile: s.mobile || "لا يوجد",
           img: s.img,
           parentName: s["Student.Parent.User.name"],
         }))
@@ -71,7 +73,7 @@ const StudentsProfile = () => {
     await fetchData();
   };
   const handelStudentProfile = async (id: number) => {
-    navigate(`/student/${id}`);
+    if (userData.role === "teacher") navigate(`/student/${id}`);
   };
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const StudentsProfile = () => {
     name: <NameCell name={s.name} image={s.img} />,
     mobile: s.mobile,
     parentName: s.parentName,
-    action: (
+    action: userData.role === "teacher" && (
       <Action
         id={s.id}
         handelDeleteStudent={() => handelDeleteStudent(s.id)}
@@ -114,17 +116,21 @@ const StudentsProfile = () => {
   }
 
   return (
-    <>
+    <main className="class-students">
       <h1 className="title">الطلاب</h1>
       <div className="table_wrapper">
         <Table
-          columns={columns}
+          columns={
+            userData.role === "teacher"
+              ? columns
+              : columns.slice(0, columns.length - 1)
+          }
           dataSource={dataSource}
           size="middle"
           pagination={{ pageSize: 4 }}
         />
       </div>
-    </>
+    </main>
   );
 };
 

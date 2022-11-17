@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { FC, ReactNode, useState } from "react";
+import { Outlet, useNavigate, useParams, Link } from "react-router-dom";
 import { LogoutOutlined } from "@ant-design/icons";
 import { message } from "antd";
-import axios from "axios";
 import UserHeader from "../../components/profile/UserHeader";
 import Reports from "../../components/profile/Report";
 import Nav from "../../components/profile/Nav";
 import { TeacherSchedule } from "../../components";
 import Logo from "../../assets/new-logo.png";
+import { useUserData } from "../../context/AuthContext";
 import "./style.css";
 
 interface ProfilePageProps {
@@ -19,7 +19,6 @@ interface ProfilePageProps {
   role: string;
   image: string;
   visitRole: string | undefined;
-  setIsGotten: Dispatch<SetStateAction<boolean>>;
   children?: ReactNode;
 }
 
@@ -32,34 +31,32 @@ const ProfilePage: FC<ProfilePageProps> = ({
   image,
   visitRole,
   children,
-  setIsGotten,
 }) => {
   const { pathname } = window.location;
   const [newPath, setNewPath] = useState<string | null>(pathname);
   const [activeColor] = useState<string>("profile-active");
   const { studentId } = useParams();
   const navigate = useNavigate();
+  const { logout, userData } = useUserData();
 
   const paths = [
     `/student/${studentId}/classes`,
-    `/student/${studentId}/grades`,
     `/student/${studentId}/tests`,
+    `/student/${studentId}/grades`,
     `/student/${studentId}/health`,
   ];
-  const labels = ["الصفوف", "الدرجات", "الاختبارات", "الصحة"];
+  const labels = ["الصفوف", "الاختبارات", "الدرجات", "الصحة"];
 
   const handleClicked = (path: string): void => {
     setNewPath(path);
   };
 
-  const logOut = async () => {
+  const handleLogout = async () => {
     try {
-      const logOutData = await axios.post("/api/v1/auth/logout");
+      const logoutData = await logout();
 
-      message.success(logOutData.data.msg);
-      setIsGotten(false);
+      message.success(logoutData.data.msg);
       navigate("/");
-      window.location.reload();
     } catch (error: any) {
       message.error(error.response.data.msg);
     }
@@ -69,9 +66,13 @@ const ProfilePage: FC<ProfilePageProps> = ({
     <main id="profile-page">
       <header>
         <div>
-          <img src={Logo} alt="geek school logo" />
+          <Link to="/">
+            <img src={Logo} alt="geek school logo" />
+          </Link>
         </div>
-        <LogoutOutlined onClick={logOut} />
+        <div className="logout-cont">
+          <LogoutOutlined onClick={handleLogout} /> ➡️ Logout
+        </div>
         <div>
           <img
             src="https://www.pngitem.com/pimgs/m/99-998739_dale-engen-person-placeholder-hd-png-download.png"
@@ -80,7 +81,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
         </div>
       </header>
 
-      {role === "student" && (
+      {role !== "student" && (
         <Reports studentId={studentId} visitRole={visitRole} />
       )}
 
@@ -95,16 +96,47 @@ const ProfilePage: FC<ProfilePageProps> = ({
         />
         {role === "student" && (
           <nav id="profile-nav">
-            {labels.map((pathName, i) => (
-              <Nav
-                path={paths[i]}
-                name={pathName}
-                activeColor={activeColor}
-                handleClicked={handleClicked}
-                newPath={newPath}
-                testPath={paths[i]}
-              />
-            ))}
+            {userData.role === "student"
+              ? labels.map((pathName, i) => (
+                  <Nav
+                    key={pathName}
+                    path={paths[i]}
+                    name={pathName}
+                    activeColor={activeColor}
+                    handleClicked={handleClicked}
+                    newPath={newPath}
+                    testPath={paths[i]}
+                  />
+                ))
+              : userData.role === "parent"
+              ? labels
+                  .filter((label) => label !== "الصفوف")
+                  .map((pathName, i) => (
+                    <Nav
+                      key={pathName}
+                      path={paths.slice(1)[i]}
+                      name={pathName}
+                      activeColor={activeColor}
+                      handleClicked={handleClicked}
+                      newPath={newPath}
+                      testPath={paths.slice(1)[i]}
+                    />
+                  ))
+              : labels
+                  .filter(
+                    (label) => label !== "الصفوف" && label !== "الاختبارات"
+                  )
+                  .map((pathName, i) => (
+                    <Nav
+                      key={pathName}
+                      path={paths.slice(2)[i]}
+                      name={pathName}
+                      activeColor={activeColor}
+                      handleClicked={handleClicked}
+                      newPath={newPath}
+                      testPath={paths.slice(2)[i]}
+                    />
+                  ))}
           </nav>
         )}
         {role === "teacher" && <TeacherSchedule />}

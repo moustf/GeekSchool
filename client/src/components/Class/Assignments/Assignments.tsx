@@ -13,6 +13,8 @@ const { Search } = Input;
 
 const Assignments: React.FC = () => {
   const [assignments, setAssignments] = useState<Array<object>>([]);
+  const [assignmentsCopy, setAssignmentsCopy] = useState<Array<object>>([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [addTest, setAddTest] = useState<boolean>(false);
 
   const { classId } = useParams();
@@ -21,8 +23,8 @@ const Assignments: React.FC = () => {
 
   // ? The search function.
   const onSearch = (value: string) =>
-    setAssignments((prevValue: any) =>
-      prevValue.filter((object: any) => object.title.includes(value))
+    setAssignmentsCopy(
+      assignments.filter((assignment: any) => assignment.title.includes(value))
     );
 
   // ? Button events
@@ -39,7 +41,7 @@ const Assignments: React.FC = () => {
         {
           label: "إضافة تكليف",
           key: "1",
-          icon: <AssignmentModal />,
+          icon: <AssignmentModal setRefresh={setRefresh} />,
         },
         {
           label: "إضافة اختبار",
@@ -56,8 +58,10 @@ const Assignments: React.FC = () => {
 
       if (data.data.data.count) {
         setAssignments(data.data.data.rows);
+        setAssignmentsCopy(data.data.data.rows);
       } else {
         setAssignments(data.data.data);
+        setAssignmentsCopy(data.data.data);
       }
     };
 
@@ -65,11 +69,11 @@ const Assignments: React.FC = () => {
 
     return () => source.cancel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [refresh]);
 
   return (
     <>
-      {addTest && <AddTest />}
+      {addTest && <AddTest setTest={setAddTest} />}
       <main className="class-assignment">
         <h1 className="assignment-title">التكليفات</h1>
         <section className="assignment-add-search">
@@ -79,19 +83,22 @@ const Assignments: React.FC = () => {
             onSearch={onSearch}
             enterButton
           />
-          <Dropdown overlay={menu} className="dropdown">
-            <Button className="dropdown-button">
-              <Space>
-                <PlusOutlined className="plus-icon" />
-                إضافة
-              </Space>
-            </Button>
-          </Dropdown>
+          {role === "teacher" && (
+            <Dropdown overlay={menu} className="dropdown">
+              <Button className="dropdown-button">
+                <Space>
+                  <PlusOutlined className="plus-icon" />
+                  إضافة
+                </Space>
+              </Button>
+            </Dropdown>
+          )}
         </section>
         {role === "student" && (
           <section className="assignments-box">
-            {assignments.map((assignment: any) => (
+            {assignmentsCopy.map((assignment: any) => (
               <StudentAssignmentCard
+                key={assignment.title}
                 title={assignment.title}
                 createdAt={assignment.createdAt}
                 description={assignment.description}
@@ -100,13 +107,14 @@ const Assignments: React.FC = () => {
           </section>
         )}
         {role === "teacher" && (
-          <section className="assignment-box">
-            {assignments.map((assignment: any) => (
+          <section className="assignments-box">
+            {assignmentsCopy.map((assignment: any) => (
               <TeacherAssignmentCard
                 id={assignment.id}
                 title={assignment.title}
                 createdAt={assignment.createdAt}
                 description={assignment.description}
+                setRefresh={setRefresh}
               />
             ))}
           </section>

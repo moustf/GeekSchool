@@ -10,7 +10,7 @@ beforeAll(() => buildSeed());
 describe('Testing get the students for a specific teacher route.', () => {
   test('Testing the success path, when the user is logged in and the role of him is teacher. The statusCode should be 200.', (done) => {
     supertest(app)
-      .get('/api/v1/student/classes')
+      .get('/api/v1/student/1/classes')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTY2Njk2OTcwOX0.fCtmQWvLsiKGQbk-v4Lq8yoe4Q3CbiC_02I1p0tAbjM',
       ])
@@ -24,7 +24,7 @@ describe('Testing get the students for a specific teacher route.', () => {
 
   test('Testing the success path, when the user is logged in and the role of him is teacher', (done) => {
     supertest(app)
-      .get('/api/v1/student/classes')
+      .get('/api/v1/student/1/classes')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTY2Njk2OTcwOX0.fCtmQWvLsiKGQbk-v4Lq8yoe4Q3CbiC_02I1p0tAbjM',
       ])
@@ -39,7 +39,7 @@ describe('Testing get the students for a specific teacher route.', () => {
 
   test('Testing the failure path, when the user is logged in and the role of him is not teacher, it should return Unauthenticated', (done) => {
     supertest(app)
-      .get('/api/v1/student/classes')
+      .get('/api/v1/student/1/classes')
       .set('Cookie', [
         'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik11c3RhZmEiLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNjY2ODU2OTg5fQ.zRPQHH51kwdsFlF4wDZP1kT7RCRmchw4YtflOFCWtYc',
       ])
@@ -54,7 +54,7 @@ describe('Testing get the students for a specific teacher route.', () => {
 
   test('Testing the failure path, when the user is logged in, it should return Unauthenticated', (done) => {
     supertest(app)
-      .get('/api/v1/student/classes')
+      .get('/api/v1/student/1/classes')
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
