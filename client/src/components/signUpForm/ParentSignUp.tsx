@@ -81,8 +81,8 @@ const ParentSignUp: React.ElementType = ({
           placeholder="البريد الإلكتروني للأبناء"
           onChange={handleEmailChange}
           style={{ height: "100%", width: "89%" }}
-          status={!isChildEmailValid ? 'error' : ''}
-          prefix={!isChildEmailValid ? <ClockCircleOutlined /> : ''}
+          status={!isChildEmailValid ? "error" : ""}
+          prefix={!isChildEmailValid ? <ClockCircleOutlined /> : ""}
         />
         <Button
           type="primary"
