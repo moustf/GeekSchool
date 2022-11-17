@@ -1,6 +1,7 @@
 import putStudentHealthQuery from './putStudentHealthQuery';
+import createHealthForStudents from './createHealthForStudent';
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   putStudentHealthQuery,
+  createHealthForStudents,
 };
