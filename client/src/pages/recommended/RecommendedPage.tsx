@@ -20,6 +20,7 @@ const RecommendedPage: React.FC = () => {
   const [current, setCurrent] = useState<number>(1);
   const [count, setCount] = useState<number>(1);
   const [recommended, setRecommended] = useState<Array<recommendedType>>([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const source = axios.CancelToken.source();
 
   const { classId } = useParams();
@@ -34,7 +35,7 @@ const RecommendedPage: React.FC = () => {
     fetchRecommended();
     return () => source.cancel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current]);
+  }, [current, refresh]);
 
   const onChange: PaginationProps["onChange"] = (page) => {
     setCurrent(page);
@@ -47,7 +48,7 @@ const RecommendedPage: React.FC = () => {
           <Title level={1} className="title">
             توصيات إضافية
           </Title>
-          {useUserData().userData?.role === "teacher" ? <AddRecommended /> : ""}
+          {useUserData().userData?.role === "teacher" ? <AddRecommended setRefresh={setRefresh} /> : ""}
         </div>
 
         {recommended.map((ele) => (

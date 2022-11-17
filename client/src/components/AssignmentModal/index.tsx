@@ -1,14 +1,16 @@
 import { Button, Modal, Form, Input } from "antd";
-import React, { useState } from "react";
+import { useState, FC, Dispatch, SetStateAction } from "react";
 import { CloseOutlined, FileTextOutlined } from "@ant-design/icons";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./index.css";
 
-const AssignmentModal: React.FC = () => {
+const AssignmentModal: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({ setRefresh }) => {
   const [form] = Form.useForm();
   const source = axios.CancelToken.source();
   const [visible, setVisible] = useState<boolean>(false);
+  const { classId } = useParams();
 
   const showModal = () => setVisible(true);
 
@@ -19,10 +21,12 @@ const AssignmentModal: React.FC = () => {
   const onFinish = async (fieldValues: any) => {
     try {
       await axios.post(
-        "/api/v1/class/25/assignment",
+        `/api/v1/class/${classId}/assignment`,
         { ...fieldValues },
         { cancelToken: source.token }
       );
+
+      setRefresh((prevValue) => !prevValue);
 
       await Swal.fire({
         title: "تم إضافة المهمة بنجاح",

@@ -35,7 +35,7 @@ const AnsweredQuestion: FC<Props> = ({
             className="answer_btn"
             onClick={() => setEdit(false)}
           >
-            Save
+            حفظ
           </Button>
         </div>
       ) : (
@@ -47,7 +47,7 @@ const AnsweredQuestion: FC<Props> = ({
               className="edit_btn"
               onClick={() => setEdit(true)}
             >
-              Edit
+                تعديل
             </Button>
           )}
         </div>

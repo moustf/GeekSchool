@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState, FC, Dispatch, SetStateAction } from "react";
 import { Form, Button, message, Input, Modal } from "antd";
 import axios from "axios";
 import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import "./style.css";
 
-const AddRecommended: React.FC = () => {
+const AddRecommended: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({ setRefresh }) => {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState<boolean>(false);
   const source = axios.CancelToken.source();
@@ -19,13 +19,14 @@ const AddRecommended: React.FC = () => {
 
   const onFinish = async (fieldValues: any) => {
     try {
-      const newRecommneded = await axios.post(
+      const newRecommended = await axios.post(
         `/api/v1/class/${classId}/recommended`,
         { ...fieldValues },
         { cancelToken: source.token }
       );
 
-      message.success(newRecommneded.data.msg);
+      message.success(newRecommended.data.msg);
+      setRefresh((prevValue) => !prevValue);
     } catch (error: any) {
       message.error(error.response.data.msg);
     }

@@ -1,5 +1,6 @@
 import { FC, useState, Dispatch, SetStateAction } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Button, Form, Input, DatePicker } from "antd";
 import { CloseSquareOutlined } from "@ant-design/icons";
@@ -29,6 +30,7 @@ const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({
   setTest,
 }) => {
   const [isShown, setIsShown] = useState<boolean>(true);
+  const { classId } = useParams();
 
   const onFinish = async (fieldValues: any) => {
     const values = {
@@ -38,7 +40,7 @@ const AddTest: FC<{ setTest: Dispatch<SetStateAction<boolean>> }> = ({
     };
 
     try {
-      await axios.post("/api/v1/class/test", { ...values });
+      await axios.post(`/api/v1/class/${classId}/test`, { ...values });
       await Swal.fire({
         title: "The test is added successfully!",
         showClass: {

@@ -15,6 +15,7 @@ const addNewAssignment = async (req: Request, res: Response, next: NextFunction)
 
     res.status(201).json({ msg: 'Assignment is created successfully!', data: assignment });
   } catch (err) {
+    console.log(err);
     if (err.name === 'ValidationError') {
       next(new CustomError(400, 'Wrong data is inserted!'));
     }

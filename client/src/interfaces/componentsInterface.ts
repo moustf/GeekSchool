@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { Key, ReactNode } from "react";
+import { Key, ReactNode, Dispatch, SetStateAction } from "react";
 
 interface questionInterface {
   id: string | number;
@@ -75,6 +75,7 @@ interface TeacherAssignmentCardProps {
   title: string;
   createdAt: string;
   description: string;
+  setRefresh: Dispatch<SetStateAction<boolean>>,
 }
 
 interface ClassCardProps {

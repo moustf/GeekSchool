@@ -11,6 +11,7 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
   title,
   createdAt,
   description,
+  setRefresh,
 }) => {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
@@ -61,6 +62,11 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
     setOpenSecond(false);
   };
 
+  const handleDeletion = () => {
+    axios.delete(`/api/v1/class/assignment/${id}`);
+    setRefresh((prevValue) => !prevValue);
+  }
+
   return (
     <div>
       <Card className="teacher-assignment-card">
@@ -79,7 +85,7 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               نشرت في: {createdAt.split("T")[0]}, الساعة:{" "}
               {createdAt.split("T")[1].slice(0, 8)}
             </p>
-            <DeleteFilled style={{ color: "red", fontSize: "1.3rem" }} />
+            <DeleteFilled onClick={handleDeletion} style={{ color: "red", fontSize: "1.3rem" }} />
           </div>
         </div>
 

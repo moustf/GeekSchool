@@ -14,6 +14,7 @@ const { Search } = Input;
 const Assignments: React.FC = () => {
   const [assignments, setAssignments] = useState<Array<object>>([]);
   const [assignmentsCopy, setAssignmentsCopy] = useState<Array<object>>([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [addTest, setAddTest] = useState<boolean>(false);
 
   const { classId } = useParams();
@@ -40,7 +41,7 @@ const Assignments: React.FC = () => {
         {
           label: "إضافة تكليف",
           key: "1",
-          icon: <AssignmentModal />,
+          icon: <AssignmentModal setRefresh={setRefresh} />,
         },
         {
           label: "إضافة اختبار",
@@ -68,7 +69,7 @@ const Assignments: React.FC = () => {
 
     return () => source.cancel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [refresh]);
 
   return (
     <>
@@ -113,6 +114,7 @@ const Assignments: React.FC = () => {
                 title={assignment.title}
                 createdAt={assignment.createdAt}
                 description={assignment.description}
+                setRefresh={setRefresh}
               />
             ))}
           </section>
