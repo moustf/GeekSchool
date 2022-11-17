@@ -21,7 +21,7 @@ import {
 
 import { createUser, findUserByEmail } from './userQueries';
 
-import { putStudentHealthQuery } from './students';
+import { putStudentHealthQuery, createHealthForStudents } from './students';
 
 import { getTeacherStudentsQuery, teacherInfoQuery } from './teacher';
 import {
@@ -43,7 +43,7 @@ import {
   getStudentHealthsQuery,
 } from './profile';
 
-import { studentParentRelationQuery, getUserIdFromTableQuery } from './Auth';
+import { studentParentRelationQuery, getUserIdFromTableQuery, getIfUserStudentIsCreated } from './Auth';
 import getParentTeachersQuery from './getParentTeachers';
 
 import getTeacherScheduleQuery from './getTeacherScheduleQuery';
@@ -89,4 +89,6 @@ export {
   teacherInfoQuery,
   getStudentInfoQuery,
   getUserIdFromTableQuery,
+  getIfUserStudentIsCreated,
+  createHealthForStudents,
 };

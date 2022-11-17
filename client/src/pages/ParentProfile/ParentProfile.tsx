@@ -23,7 +23,7 @@ const ParentProfile: FC = () => {
     {
       parent_id: 1,
       name: "",
-      user_id: 1,
+      id: 1,
       img: "",
     },
   ]);
@@ -87,7 +87,7 @@ const ParentProfile: FC = () => {
       <main className="profile-cards">
         <ProfileCard
           data={children.map((child: ChildrenData) => ({
-            id: child.user_id,
+            id: child.id,
             img: child.img,
             name: child.name,
             mobile: parentInfo.mobile,

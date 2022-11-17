@@ -1,12 +1,22 @@
 import { NextFunction, Request, Response } from 'express';
 import { compare } from 'bcryptjs';
-import { loginQuery } from '../../queries';
+import { loginQuery, getIfUserStudentIsCreated, findUserByEmail } from '../../queries';
 import { CustomError, loginValidate, signToken } from '../../utils';
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, loginPassword } = req.body;
     await loginValidate({ email, loginPassword });
+
+    const whoIsUser = await findUserByEmail(email);
+
+    if (whoIsUser?.getDataValue('role') === 'student') {
+      const doesExist = await getIfUserStudentIsCreated(email);
+      if (!doesExist) {
+        throw new CustomError(403, 'لا يمكنك الدخول لحسابك إلا بعد إدخال ولي أمرك ايميلك.');
+      }
+    }
+
     const loginData: any = await loginQuery(email);
     let id: number = 0;
 

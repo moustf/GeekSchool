@@ -13,7 +13,7 @@ const studentInfoMiddleware = async (req: any, res: Response, next: NextFunction
       case role === 'teacher':
         next();
         break;
-      case role === 'student' && +studentId === isRelated:
+      case role === 'student':
         next();
         break;
       case role === 'parent' && isRelated > 0:

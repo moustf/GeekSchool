@@ -48,7 +48,11 @@ const RecommendedPage: React.FC = () => {
           <Title level={1} className="title">
             توصيات إضافية
           </Title>
-          {useUserData().userData?.role === "teacher" ? <AddRecommended setRefresh={setRefresh} /> : ""}
+          {useUserData().userData?.role === "teacher" ? (
+            <AddRecommended setRefresh={setRefresh} />
+          ) : (
+            ""
+          )}
         </div>
 
         {recommended.map((ele) => (

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button, Form, Input, message } from "antd";
 import axios, { AxiosResponse } from "axios";
 import FeedbackCard from "../../FeedbackCard";
-import { useUserData } from '../../../context/AuthContext';
+import { useUserData } from "../../../context/AuthContext";
 import "./Feedback.css";
 
 const Feedback: React.FC = () => {
@@ -43,8 +43,8 @@ const Feedback: React.FC = () => {
   return (
     <main className="class-feedback">
       <h1 className="feedback-title">التغذية الراجعة</h1>
-      {
-        userData.role === 'student' && <section className="feedback-inner">
+      {userData.role === "student" && (
+        <section className="feedback-inner">
           <Form
             name="basic"
             labelCol={{ span: 8 }}
@@ -68,7 +68,7 @@ const Feedback: React.FC = () => {
             </Form.Item>
           </Form>
         </section>
-      }
+      )}
 
       <section className="feedbacks-boxes">
         {feedbacks.map((feedback: any) => (

@@ -65,7 +65,7 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
   const handleDeletion = () => {
     axios.delete(`/api/v1/class/assignment/${id}`);
     setRefresh((prevValue) => !prevValue);
-  }
+  };
 
   return (
     <div>
@@ -85,7 +85,10 @@ const TeacherAssignmentCard: React.FC<TeacherAssignmentCardProps> = ({
               نشرت في: {createdAt.split("T")[0]}, الساعة:{" "}
               {createdAt.split("T")[1].slice(0, 8)}
             </p>
-            <DeleteFilled onClick={handleDeletion} style={{ color: "red", fontSize: "1.3rem" }} />
+            <DeleteFilled
+              onClick={handleDeletion}
+              style={{ color: "red", fontSize: "1.3rem" }}
+            />
           </div>
         </div>
 

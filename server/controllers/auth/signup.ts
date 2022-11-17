@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { hash } from 'bcryptjs';
 
 import {
-  createUser, createTeacher, findUserByEmail, createParent, createStudent,
+  createUser, createTeacher, findUserByEmail, createParent, createStudent, createHealthForStudents,
 } from '../../queries';
 
 import {
@@ -15,9 +15,11 @@ import {
 
 const addChild = async (child: any, parentId: number) => {
   const studentUser = await findUserByEmail(child);
-  const studentId = studentUser?.getDataValue('id');
+  const studentUserId = studentUser?.getDataValue('id');
 
-  await createStudent(studentId, parentId);
+  const student = await createStudent(studentUserId, parentId);
+  const studentId = student.getDataValue('id');
+  await createHealthForStudents(studentId);
 };
 
 const createParentAccount = async (user: UserTableInterface, children: Array<string> = []) => {

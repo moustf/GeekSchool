@@ -75,7 +75,7 @@ interface TeacherAssignmentCardProps {
   title: string;
   createdAt: string;
   description: string;
-  setRefresh: Dispatch<SetStateAction<boolean>>,
+  setRefresh: Dispatch<SetStateAction<boolean>>;
 }
 
 interface ClassCardProps {
@@ -121,7 +121,7 @@ interface ParentInfoInterface {
 
 interface ChildrenData {
   parent_id: number;
-  user_id: number;
+  id: number;
   img: string;
   name: string;
 }

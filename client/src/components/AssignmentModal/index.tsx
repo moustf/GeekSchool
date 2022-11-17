@@ -6,7 +6,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./index.css";
 
-const AssignmentModal: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({ setRefresh }) => {
+const AssignmentModal: FC<{
+  setRefresh: Dispatch<SetStateAction<boolean>>;
+}> = ({ setRefresh }) => {
   const [form] = Form.useForm();
   const source = axios.CancelToken.source();
   const [visible, setVisible] = useState<boolean>(false);

@@ -40,6 +40,10 @@ const TeacherProfile: FC = () => {
   const [students, setStudents] = useState<UserItem[]>([]);
   const [classes, setClasses] = useState<classItem[]>([]);
   const [user, setUser] = useState<UserItem>(initUser);
+  const [, setError] = useState<{ students: string; classes: string }>({
+    students: "",
+    classes: "",
+  });
   const { userData } = useUserData();
 
   useEffect(() => {
@@ -62,7 +66,10 @@ const TeacherProfile: FC = () => {
         });
         setStudents(data.data.data);
       } catch (error: any) {
-        message.error(error.response.data.msg);
+        setError((prevValue) => ({
+          ...prevValue,
+          students: error.response.data.msg,
+        }));
       }
     };
 
@@ -76,7 +83,10 @@ const TeacherProfile: FC = () => {
         );
         setClasses(data.data.data);
       } catch (error: any) {
-        message.error(error.response.data.msg);
+        setError((prevValue) => ({
+          ...prevValue,
+          classes: error.response.data.msg,
+        }));
       }
     };
 

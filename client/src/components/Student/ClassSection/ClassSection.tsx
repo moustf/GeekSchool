@@ -1,11 +1,13 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { message } from "antd";
+import { message, Typography } from "antd";
 import axios from "axios";
 
 import ClassCard from "./ClassCard/ClassCard";
 import { useUserData } from "../../../context/AuthContext";
 import "./ClassSection.css";
+
+const { Text } = Typography;
 
 const ClassSection: FC = () => {
   const [classes, setClasses] = useState<Array<object>>([]);
@@ -27,9 +29,13 @@ const ClassSection: FC = () => {
         const data = await axios.get(`/api/v1/student/${id}/classes`);
 
         setClasses(data.data.data);
-      } catch (err) {
-        message.error(`You can't access student classes!
+      } catch (err: any) {
+        if (err.response.status === 404) {
+          message.info("لا يوجد فصول لهذا الطالب!");
+        } else {
+          message.error(`You can't access student classes!
         ${err}`);
+        }
       }
     };
 
@@ -41,6 +47,19 @@ const ClassSection: FC = () => {
 
   return (
     <main className="classes">
+      {classes.length === 0 && (
+        <Text
+          style={{
+            width: "100%",
+            textAlign: "center",
+            fontSize: " 1.3rem",
+            fontWeight: "500",
+          }}
+          type="secondary"
+        >
+          لا يوجد فصول لهذا الطالب بعد!
+        </Text>
+      )}
       {classes.map((classObject: any) => (
         <ClassCard
           key={classObject.id * 8.1}

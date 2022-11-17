@@ -29,6 +29,11 @@ const LoginPage: React.FC = () => {
 
       if (loggedIn) setLoading(false);
 
+      if (loggedIn?.error && loggedIn.error.response.status === 403) {
+        message.error(loggedIn.error.response.data.msg);
+        setLoading(true);
+      }
+
       if (!loggedIn) {
         message.error("Log in failed!");
       }

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Typography } from "antd";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import GradeCollapse from "./GradesCollapse/GradesCollapse";
 
 import GradesTable from "./GradesTable/GradesTable";
 import "./StudentGrades.css";
+
+const { Text } = Typography;
 
 const StudentGrades: React.FC = () => {
   const [data, setData] = useState<Array<object>>([]);
@@ -28,6 +31,18 @@ const StudentGrades: React.FC = () => {
 
   return (
     <section className="grades">
+      {data.length === 0 && (
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: " 1.3rem",
+            fontWeight: "500",
+          }}
+          type="secondary"
+        >
+          لا يوجد درجات لهذا الطالب بعد!
+        </Text>
+      )}
       {data.map((oneClass: any) => (
         <GradeCollapse
           key={oneClass.Class.id * 0.1}

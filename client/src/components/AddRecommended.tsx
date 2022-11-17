@@ -5,7 +5,9 @@ import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import "./style.css";
 
-const AddRecommended: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({ setRefresh }) => {
+const AddRecommended: FC<{ setRefresh: Dispatch<SetStateAction<boolean>> }> = ({
+  setRefresh,
+}) => {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState<boolean>(false);
   const source = axios.CancelToken.source();

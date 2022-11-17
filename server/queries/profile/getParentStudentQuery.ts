@@ -5,7 +5,7 @@ const getParentStudentQuery = (parentId: string) => (Student.findAll({
   where: {
     parent_id: parentId,
   },
-  attributes: ['user_id', 'User.name' as'name', 'User.img' as 'img', 'parent_id'],
+  attributes: ['id', 'User.name' as 'name', 'User.img' as 'img', 'parent_id'],
   include: [{
     model: User,
     attributes: [],
