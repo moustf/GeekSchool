@@ -17,7 +17,7 @@ if (nodeEnv === 'development') {
 } else if (nodeEnv === 'production') {
   connectionString = dbProduction;
   ssl = {
-    rejectAuthorization: false,
+    rejectUnauthorized: false,
   };
 } else {
   throw new Error('Invalid NODE_ENV variable or not given at all.');

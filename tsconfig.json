@@ -100,7 +100,7 @@
       "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
     },
     "include": [
-      "src",
-      "__test__",
+      "server",
+      "server/__test__/**.test.ts",
     ]
   }
