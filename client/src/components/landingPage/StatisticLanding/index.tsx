@@ -62,7 +62,7 @@ const StatisticLanding = () => (
     </div>
 
     <div className="right">
-      <h1>معاً لتعليم أفضل</h1>
+      <h1 className="right-title">معاً لتعليم أفضل</h1>
       <p>نهدف إلى بناء عملية تعليمية بجودة عالية</p>
     </div>
   </div>
