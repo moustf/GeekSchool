@@ -21,14 +21,14 @@ app.disable('x-powered-by');
 
 app.use('/api/v1/', router);
 
-app.use(notFound);
-app.use(serverError);
-
 if (nodeEnv === 'production') {
   app.use(express.static(join(__dirname, '..', 'client', 'build')));
-  app.get('*', (req: Request, res: Response) => {
-    res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
-  });
+  app.get('*', (req: Request, res: Response) => (
+    res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'))
+  ));
 }
+
+app.use(notFound);
+app.use(serverError);
 
 export default app;

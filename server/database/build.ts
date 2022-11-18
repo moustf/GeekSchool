@@ -1,5 +1,5 @@
 import { nodeEnv } from '../config/environment';
-import { sequelize } from '../models';
+import sequelize from './connection';
 
 const buildModels = async () => sequelize.sync({ force: true });
 
