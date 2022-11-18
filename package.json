@@ -4,7 +4,7 @@
   "description": "geekschool",
   "main": "index.ts",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node dist",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "dev": "cross-env NODE_ENV=development nodemon server/index.ts",
     "test": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles --runInBand server/__test__/",
     "lint": "eslint --ext .ts server/",
@@ -15,7 +15,7 @@
     "dbSeed": "cross-env NODE_ENV=development ts-node ./server/database/seed.ts",
     "dbBuildProd": "cross-env NODE_ENV=production ts-node ./server/database/build.ts",
     "dbSeedProd": "cross-env NODE_ENV=production ts-node ./server/database/seed.ts",
-    "postBuild": "cd client && npm i && npm run build && cd .. && npm i && npm run build",
+    "postBuild": "npm run build && cd client && npm install && npm run build",
     "build": "tsc"
   },
   "pre-commit": [
