@@ -3,7 +3,7 @@ import { Button, Input, ConfigProvider, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { reportsInterface } from "../../interfaces";
-import ReportCard from "./ReportCard";
+// import ReportCard from "./ReportCard";
 
 ConfigProvider.config({
   theme: {
@@ -18,10 +18,8 @@ const Reports = ({
   studentId: string | number | undefined;
   visitRole: string | undefined;
 }) => {
-  const [dataReports, setDataReports] = useState<reportsInterface[] | null>(
-    null
-  );
-  const [reportInput, setReportInput] = useState<string | null>(null);
+  const [, setDataReports] = useState<reportsInterface[] | []>([]);
+  const [reportInput, setReportInput] = useState<string>('');
 
   useEffect(() => {
     const getReports = async () => {
@@ -67,12 +65,12 @@ const Reports = ({
           )}
         </div>
         <div className="reports-container">
-          {dataReports?.map((report) => (
+          {/* {dataReports.length !== 0 && dataReports.map((report) => (
             <ReportCard
-              report={report.description}
-              key={`${report.id}reports`}
+              report={report?.description}
+              key={`${report?.id}reports`}
             />
-          ))}
+          ))} */}
         </div>
       </section>
     </aside>

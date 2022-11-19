@@ -1,8 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Card, Typography } from "antd";
-import ClassAvatar from "../../../../assets/class_avatar.png";
-import ClassBcg from "../../../../assets/class_bcg.png";
 import { ClassCardProps } from "../../../../interfaces/componentsInterface";
 import "./ClassCard.css";
 
@@ -32,7 +30,7 @@ const ClassCard: FC<ClassCardProps> = ({
         bodyStyle={{
           width: "100%",
           height: "10rem",
-          backgroundImage: `url(${ClassBcg})`,
+          backgroundImage: `url("${process.env.PUBLIC_URL}/assets/class_bcg.png")`,
           backgroundPosition: "right center",
           display: "flex",
           flexDirection: "column",
@@ -50,7 +48,11 @@ const ClassCard: FC<ClassCardProps> = ({
           </Title>
         </section>
       </Card>
-      <img className="class-avatar" src={ClassAvatar} alt="class avatar" />
+      <img
+        className="class-avatar"
+        src={`${process.env.PUBLIC_URL}/assets/class_avatar.png`}
+        alt="class avatar"
+      />
       <Card
         className="assignments-tests"
         bodyStyle={{

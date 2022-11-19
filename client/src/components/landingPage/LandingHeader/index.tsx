@@ -2,9 +2,6 @@ import { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Image, Typography, message } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
-import Logo from "../../../assets/new-logo.png";
-import BcgImage from "../../../assets/landing-bcg.png";
-import LandingImage from "../../../assets/landing-image.png";
 import { useUserData } from "../../../context/AuthContext";
 import "./LandingHeader.css";
 
@@ -76,16 +73,16 @@ const LandingHeader: FC = () => {
         </section>
 
         <Link to="/" className="logo-image">
-          <Image preview={false} src={Logo} />
+          <Image preview={false} src={`${process.env.PUBLIC_URL}/new-logo.png`} />
         </Link>
       </header>
 
       <section
         className="join-us-section"
         id="join"
-        style={{ backgroundImage: `url(${BcgImage})` }}
+        style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/assets/landing-bcg.png")` }}
       >
-        <Image preview={false} className="landing-image" src={LandingImage} />
+        <Image preview={false} className="landing-image" src={`${process.env.PUBLIC_URL}/assets/landing-image.png`} />
         <section className="join-us-texts">
           <Title level={2} className="text-title">
             انضم لتكون معنا في الرؤية الجديدة لنظام التعليم..

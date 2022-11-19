@@ -2,9 +2,6 @@ import { Card, Typography } from "antd";
 import React from "react";
 
 import FeedbackCard from "./FeedbackCard/FeedbackCard";
-import User1 from "../../../assets/user1.png";
-import User2 from "../../../assets/user2.png";
-import User3 from "../../../assets/user3.png";
 import "./LandingFeedback.css";
 
 const { Title, Text } = Typography;
@@ -35,19 +32,19 @@ const LandingFeedback: React.FC = () => (
         <FeedbackCard
           text="كانت تجربة ممتعة، و فرصة جيدة للحصول 
         على التعليم بنظرة جديدة"
-          img={User1}
+          img={`${process.env.PUBLIC_URL}/assets/user1.png`}
           userName="محمد إبراهيم"
           date="November 20, 2019"
         />
         <FeedbackCard
           text="من خلال المنصة، يمكنك متابعة أبنئك بلا جهد زائد أو ملل"
-          img={User2}
+          img={`${process.env.PUBLIC_URL}/assets/user2.png`}
           userName="رامي إمام"
           date="December 15, 2020"
         />
         <FeedbackCard
           text="البرنامج يوفر عليك الكثير من الوقت من خلال تقليل زيارتك الفعلية للمدرسة"
-          img={User3}
+          img={`${process.env.PUBLIC_URL}/assets/user3.png`}
           userName="خليل حسن"
           date="January 11, 2021"
         />

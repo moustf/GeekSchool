@@ -5,15 +5,6 @@ import axios from "axios";
 import { message } from "antd";
 import { HealthCard } from "../../components";
 import { useUserData } from "../../context/AuthContext";
-import {
-  cancer,
-  dental,
-  bloodPressure,
-  diabetes,
-  chronic,
-  vision,
-  other,
-} from "../../assets";
 import "./style.css";
 
 const types = [
@@ -35,13 +26,13 @@ const names = [
   "امراض اخرى",
 ];
 const images = [
-  dental,
-  vision,
-  bloodPressure,
-  cancer,
-  diabetes,
-  chronic,
-  other,
+  `${process.env.PUBLIC_URL}/assets/dental.png`,
+  `${process.env.PUBLIC_URL}/assets/vision.png`,
+  `${process.env.PUBLIC_URL}/assets/bloodPressure.png`,
+  `${process.env.PUBLIC_URL}/assets/cancer.png`,
+  `${process.env.PUBLIC_URL}/assets/diabetes.png`,
+  `${process.env.PUBLIC_URL}/assets/chronic.png`,
+  `${process.env.PUBLIC_URL}/assets/other.png`,
 ];
 const colors = [
   ["#BE7474", "#7D4B4B"],
