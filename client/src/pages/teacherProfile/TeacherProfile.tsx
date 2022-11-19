@@ -5,7 +5,6 @@ import { message } from "antd";
 import axios from "axios";
 import ProfilePage from "../profile";
 import ProfileCard from "../../components/ProfileCard";
-import avtar from "../../assets/class_avatar.png";
 import { useUserData } from "../../context/AuthContext";
 import "./style.css";
 
@@ -124,7 +123,7 @@ const TeacherProfile: FC = () => {
 
         <ProfileCard
           data={classes.map((oneClass: classItem) => ({
-            img: avtar,
+            img: `${process.env.PUBLIC_URL}/assets/class_avatar.png`,
             name: oneClass.name,
             id: oneClass.id,
           }))}

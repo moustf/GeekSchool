@@ -7,7 +7,6 @@ import UserHeader from "../../components/profile/UserHeader";
 import Reports from "../../components/profile/Report";
 import Nav from "../../components/profile/Nav";
 import { TeacherSchedule } from "../../components";
-import Logo from "../../assets/new-logo.png";
 import { useUserData } from "../../context/AuthContext";
 import "./style.css";
 
@@ -67,7 +66,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
       <header>
         <div>
           <Link to="/">
-            <img src={Logo} alt="geek school logo" />
+            <img src={`${process.env.PUBLIC_URL}/new-logo.png`} alt="geek school logo" />
           </Link>
         </div>
         <div className="logout-cont">
