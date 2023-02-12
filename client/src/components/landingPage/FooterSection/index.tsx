@@ -86,10 +86,22 @@ const Footer = () => (
   <div className="footer_wrapper">
     <footer>
       <div className="footer_banner">
-        <img className="left_hash" src={`${process.env.PUBLIC_URL}/assets/left hash.svg`} alt="leftHash" />
-        <img className="right_hash" src={`${process.env.PUBLIC_URL}/assets/right hash.svg`} alt="rightHash" />
+        <img
+          className="left_hash"
+          src={`${process.env.PUBLIC_URL}/assets/left hash.svg`}
+          alt="leftHash"
+        />
+        <img
+          className="right_hash"
+          src={`${process.env.PUBLIC_URL}/assets/right hash.svg`}
+          alt="rightHash"
+        />
         <div className="map_wrapper">
-          <img className="map" src={`${process.env.PUBLIC_URL}/assets/Map.svg`} alt="rightHash" />
+          <img
+            className="map"
+            src={`${process.env.PUBLIC_URL}/assets/Map.svg`}
+            alt="rightHash"
+          />
           <div className="content_section">
             <div className="title">
               <h1>إنه الوقت كي نستثمر أكثر في تعليم أبنائنا</h1>

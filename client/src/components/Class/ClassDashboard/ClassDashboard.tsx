@@ -105,7 +105,10 @@ const ClassDashboard: React.FC = () => {
         <div>
           <MenuOutlined onClick={openAside} />
           <Link to="/">
-            <img src={`${process.env.PUBLIC_URL}/new-logo.png`} alt="geek school logo" />
+            <img
+              src={`${process.env.PUBLIC_URL}/new-logo.png`}
+              alt="geek school logo"
+            />
           </Link>
           <div className="logout-cont">
             <LogoutOutlined onClick={handleLogout} /> ➡️ Logout

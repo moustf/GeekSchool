@@ -73,16 +73,25 @@ const LandingHeader: FC = () => {
         </section>
 
         <Link to="/" className="logo-image">
-          <Image preview={false} src={`${process.env.PUBLIC_URL}/new-logo.png`} />
+          <Image
+            preview={false}
+            src={`${process.env.PUBLIC_URL}/new-logo.png`}
+          />
         </Link>
       </header>
 
       <section
         className="join-us-section"
         id="join"
-        style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/assets/landing-bcg.png")` }}
+        style={{
+          backgroundImage: `url("${process.env.PUBLIC_URL}/assets/landing-bcg.png")`,
+        }}
       >
-        <Image preview={false} className="landing-image" src={`${process.env.PUBLIC_URL}/assets/landing-image.png`} />
+        <Image
+          preview={false}
+          className="landing-image"
+          src={`${process.env.PUBLIC_URL}/assets/landing-image.png`}
+        />
         <section className="join-us-texts">
           <Title level={2} className="text-title">
             انضم لتكون معنا في الرؤية الجديدة لنظام التعليم..
