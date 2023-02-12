@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading) {
+    if (!loading && userData) {
       const { role, id } = userData;
       if (role === "parent") navigate("/parent");
       else if (role === "teacher") navigate(`/teacher/${id}`);
@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
 
       if (loggedIn) setLoading(false);
 
-      if (loggedIn?.error && loggedIn.error.response.status === 403) {
+      if (loggedIn?.error && loggedIn.error.response.status !== 200) {
         message.error(loggedIn.error.response.data.msg);
         setLoading(true);
       }

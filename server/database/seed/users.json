@@ -4,28 +4,28 @@
       "email": "rami@gmail.com",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "student",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "جميل إبراهيم",
       "email": "jameel@gmail.com",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "student",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "كامل علي",
       "email": "kamel@gmail.com",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "student",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "سعيد رامي",
       "email": "saeed@gmail.com",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "student",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "أسماء عبدالله",
@@ -34,7 +34,7 @@
       "location": "خانيونس، المعسكر",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScxU3F5I32uVCrfhvxrDPHXiarJ5Rjg3LwQ&usqp=CAU",
       "role": "teacher",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "إياد خميس",
@@ -43,7 +43,7 @@
       "location": "معسكر جباليا",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "teacher",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "قاسم عيسى",
@@ -52,7 +52,7 @@
       "location": "غزة، الشيخ رضوان",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "parent",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     },
   {
       "name": "تامر محمد",
@@ -61,6 +61,6 @@
       "location": "غزة، النصر",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEJMXA4HU6NNsX9ImmYWYEvithsfvIwliyw&usqp=CAU",
       "role": "parent",
-      "password": "$2a$12$FG/LxdMN9DQVIa40ZRD/IOcCqS3ulyzftsM5UVmQ4eJRyLbT5HavW"
+      "password": "$2a$12$zAnbEMBmLCiqCM8G1GKhOethRD770u1MOZ3wz79Dlh6vKb.wBPiCq"
     }
   ]

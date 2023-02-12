@@ -19,7 +19,7 @@ const Reports = ({
   visitRole: string | undefined;
 }) => {
   const [, setDataReports] = useState<reportsInterface[] | []>([]);
-  const [reportInput, setReportInput] = useState<string>('');
+  const [reportInput, setReportInput] = useState<string>("");
 
   useEffect(() => {
     const getReports = async () => {
