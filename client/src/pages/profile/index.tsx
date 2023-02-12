@@ -66,7 +66,10 @@ const ProfilePage: FC<ProfilePageProps> = ({
       <header>
         <div>
           <Link to="/">
-            <img src={`${process.env.PUBLIC_URL}/new-logo.png`} alt="geek school logo" />
+            <img
+              src={`${process.env.PUBLIC_URL}/new-logo.png`}
+              alt="geek school logo"
+            />
           </Link>
         </div>
         <div className="logout-cont">
@@ -80,7 +83,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
         </div>
       </header>
 
-      {role !== "student" && (
+      {role === "student" && visitRole !== "student" && (
         <Reports studentId={studentId} visitRole={visitRole} />
       )}
 
