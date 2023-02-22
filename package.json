@@ -16,7 +16,7 @@
     "dbBuildProd": "cross-env NODE_ENV=production ts-node ./server/database/build.ts",
     "dbSeedProd": "cross-env NODE_ENV=production ts-node ./server/database/seed.ts",
     "build": "tsc",
-    "postBuild": "npm run build && cd client && npm install && npm run build"
+    "postBuild": "npm i && npm run build && cd client && npm i && npm run build"
   },
   "pre-commit": [
     "format-client",
